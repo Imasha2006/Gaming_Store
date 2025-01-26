@@ -1,0 +1,675 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: white;
+  /* Light beige color for background */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #7e8d85;
+  height: auto;
+  border-bottom: 3px solid #ffffff;
+  /* Purple bottom border */
+}
+
+/* Logo Styling */
+.logo img {
+  height: 150px;
+  /* Adjust the logo size */
+  width: auto;
+  /* Maintain the aspect ratio */
+  overflow: hidden;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.menu li {
+  margin: 0 2px;
+  padding: 10px 20px;
+  border: 2px solid #ffffff;
+  /* Creates the box effect */
+  border-radius: 8px;
+  background-color: #7e8d85;
+  display: flex;
+  /* Enable flexbox on li */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu li:hover {
+  background-color: #555;
+  /* Change background on hover */
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu li:hover a {
+  color: #f0f7f4;
+  /* Change text color on hover */
+}
+
+
+/* Navigation Menu Styling */
+nav ul {
+  display: flex;
+  gap: 20px;
+  /* Space between menu items */
+  list-style: none;
+
+}
+
+nav ul li {
+  font-size: 14px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #3c493f;
+  /* Dark color for links */
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #f0f7f4;
+  /* Purple hover effect */
+}
+
+
+/* Full Section Background Video Styling */
+.video-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  /* Full viewport height */
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* Ensures the video covers the section */
+  z-index: -1;
+  /* Places the video behind other content */
+}
+
+.video-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  color: rgb(165, 194, 233);
+  width: auto;
+  height: 300px; /* Add a height for proper vertical centering */
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.video-content p {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #000000; /* Dark greenish color */
+  line-height: 1.5; /* Improves readability */
+
+}
+
+/* Heading Styling */
+.video-content h1{
+  margin: 0;
+  width: 700px;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff; /* Matches the header background */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  border-bottom: 3px solid #f0f7f4; /* Underline effect */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Emphasized Paragraph with Text Shadow */
+p.emphasized {
+  width: 900px;
+  color: #ffffff; /* Main text color */
+  font-weight: bold;
+  font-size: 1.3rem; /* Increase font size */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Soft shadow for emphasis */
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* Subtle Animation for Headings */
+h1, h2 ,h3,.video-content{
+  animation: fadeIn 2s ease-in;
+}
+h1{font-size:xx-large;}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ h1{color: #3c493f;}
+
+.hero {
+  font-size: 100;
+  background-color: #b3bfbd;
+  ;
+  text-align: center;
+  padding: 100px 20px;
+  color: black;
+}
+
+
+
+/* About section */
+.about-section,
+.services-section,
+.contact-section {
+  padding: 50px 20px;
+  background-color: #b3bfbd;
+  color: #3c493f;
+  text-align: center;
+}
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Adjust to fit your design */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  width: 600%; /* 100% * number of slides */
+  animation: slide 18s infinite; /* Change the time to control the speed */
+}
+
+.slide {
+  width: 100%; /* Each slide takes 100% of the container */
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  16.66% {
+    transform: translateX(-100%);
+  }
+  33.33% {
+    transform: translateX(-200%);
+  }
+  50% {
+    transform: translateX(-300%);
+  }
+  66.66% {
+    transform: translateX(-400%);
+  }
+  83.33% {
+    transform: translateX(-500%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+.text-box {
+  display: flex; /* Flexbox layout for centering */
+  justify-content: center; /* Horizontal centering */
+  align-items: start; /* Vertical centering */
+  flex-direction: column; /* Stack content vertically */
+  border: 2px solid #769b88;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #809793;
+  max-width: 700px;
+  margin: 20px auto;
+  height: auto; /* Add a fixed height to center vertically */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Text alignment */
+}
+
+.games-list {
+  list-style-position: inside; /* Moves the numbers closer to the content */
+  padding-left: 10px; /* Reduces the left padding to bring numbers closer */
+  margin-top: 40px;
+}
+.game-item h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3c493f;
+  margin-bottom: 10px;
+  display: inline-block; /* Keeps the title inline */
+}
+/* Styling the unordered list */
+.custom-list {
+  list-style-type: disc; /* Use standard bullets */
+  align-items: center;
+  padding-left: 0; /* Remove default padding */
+  margin-left: 0; /* Remove default margin */
+}
+
+/* Styling the list items */
+.custom-list li {
+  list-style-position: inside; /* Place the bullet inside the list item */
+  margin-left: 10px; /* Reduce the left margin to move bullets closer to the text */
+  padding-left: 5px; /* Adjust the space between bullet and text */
+}
+.container {
+  display: flex;
+  justify-content: center;  /* Centers the list horizontally */
+  align-items: center;      /* Centers the list vertically */
+  height: auto;            /* Make the container take full viewport height */
+  margin: 0;
+}
+
+.list-p{align-items: center;}
+.custom-list li {
+  text-align: start;
+  padding-left: 5px;
+  /* Adjust spacing between marker and text */
+}
+
+.fade-in-image img {
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Footer styling */
+footer {
+  background-color: #7e8d85;
+  color:#3c493f;
+  text-align: center;
+  row-gap: 30px;
+  column-gap: 100px;
+  padding: 20px 0;
+  justify-items: center;
+  align-items: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+}
+
+.footer-column {
+  align-items: center;
+  flex: 1;
+  margin: 10px;
+  min-width: 250px; /* Ensures columns don’t shrink too much on smaller screens */
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-column p, .footer-column ul {
+  align-items: center;
+  margin: 10px 0;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #3c493f;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+.newsletter {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-align: center; /* Center text for inputs and buttons */
+  gap: 10px; /* Add spacing between input, button, and heading */
+  margin: 20px auto; /* Center the newsletter within its container */
+}
+.newsletter input {
+  padding: 10px;
+  width: 80%; /* Adjust width for responsiveness */
+  max-width: 400px; /* Ensure a maximum width for larger screens */
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.newsletter button {
+  padding: 10px 20px;
+  background-color: #645f5e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.newsletter button:hover {
+  background-color: #5f5b5a;
+}
+.social-icon {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #3c493f;
+}
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .menu li {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo img {
+    height: 120px;
+  }
+
+.hero h1 {
+  font-size: 2rem;
+}
+ 
+
+  .slideshow {
+    width: 100%;
+    height: auto;
+  }
+
+  .slideshow .slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .services-section,
+  .contact-section {
+    padding: 20px;
+  }
+
+  .text-box {
+    max-width: 90%;
+    padding: 10px;
+  }
+  /* For the container holding the image */
+.new-gamer-img-container {
+  text-align: center; /* Centers horizontally */
+  display: table; /* Enables vertical centering */
+}
+
+.new-gamer-img {
+  display: inline-block; /* Ensures the image behaves like text */
+  vertical-align: middle; /* Centers the image vertically */
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
+
+  footer {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter input {
+    width: 100%;
+  }
+}
+
+/* Tablet-Specific Adjustments (600px to 1024px) */
+@media (max-width: 1024px) {
+  .menu li {
+    font-size: 16px;
+  }
+
+  .slideshow {
+    width: 80%;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .newsletter input {
+    width: 80%;
+  }
+}
+
+
+/* Slideshow Styles */
+.slides {
+  display: flex;
+  width: 100%;
+  animation: slide-animation 10s infinite;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Adjust the slide animation to include 5 slides */
+@keyframes slide-animation {
+  0%, 20% {
+    transform: translateX(0%);
+  }
+  20%, 40% {
+    transform: translateX(-100%);
+  }
+  40%, 60% {
+    transform: translateX(-200%);
+  }
+  60%, 80% {
+    transform: translateX(-300%);
+  }
+  80%, 100% {
+    transform: translateX(-400%);
+  }
+
+}
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .logo img {
+    height: 100px; /* Make logo smaller on mobile */
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .menu li {
+    margin: 10px 0;
+    text-align: center;
+    width: 100%; /* Ensure full width on small screens */
+  }
+}
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  .video-section{  height: 39vh; }
+ 
+  .video-content {
+    width: 10%; /* Ensure content fits within the viewport */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in the width */
+    overflow: visible; /* Allow content to expand if needed */
+  }
+
+  .video-content h1 {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+    padding: 0 5px; /* Adjust padding */
+    line-height: 1.2; /* Tighter line spacing */
+    text-align: center; /* Center-align text */
+    word-wrap: break-word; /* Ensure long words wrap properly */
+  }
+
+  .video-content p {
+    font-size: 0.9rem; /* Smaller font size for paragraph */
+    padding: 0; /* Remove extra padding */
+    line-height: 1.5; /* Increase line spacing for readability */
+    text-align: center; /* Center-align text */
+    word-wrap: break-word; /* Prevent text from overflowing */
+
+  }
+  .video-content h1, .video-content p {
+    width: 360px;
+    margin: 0;
+  }
+}
+
+
+/* Slideshow adjustments */
+@media (max-width: 768px) {
+  .slideshow {
+    width: 100%;
+    height: auto;
+  }
+
+  .slideshow .slide img {
+    width: 100%; /* Ensure images take full width */
+    height: auto;
+  }
+}
+/* Text Box */
+@media (max-width: 768px) {
+  .text-box {
+    width: 90%; /* Reduce width on mobile */
+    padding: 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .footer-column {
+    width: 100%; /* Full-width columns on mobile */
+    margin-bottom: 20px;
+  }
+}
+
+/* Footer */
+footer {
+  padding: 10px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: block;
+    /* Stack menu items vertically */
+    text-align: center;
+  }
+
+  .menu li {
+    margin: 10px 0;
+    /* Add space between stacked menu items */
+  }
+
+  .menu a {
+    font-size: 16px;
+    /* Adjust font size on smaller screens */
+  }
+}

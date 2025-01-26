@@ -1,0 +1,507 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #b3bfbd;
+  /* Light beige color for background */
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #7e8d85;
+  height: auto;
+  border-bottom: 3px solid #ffffff;
+  /* Purple bottom border */
+}
+
+/* Logo Styling */
+.logo img {
+  height: 150px;
+  /* Adjust the logo size */
+  width: auto;
+  /* Maintain the aspect ratio */
+  overflow: hidden;
+}
+
+
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+  width: fit-content;
+}
+
+.menu li {
+  margin: 0 2px;
+  padding: 10px 20px;
+  border: 2px solid #ffffff;
+  /* Creates the box effect */
+  border-radius: 8px;
+  background-color: #7e8d85;
+  display: flex;
+  /* Enable flexbox on li */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu li:hover {
+  background-color: #555;
+  /* Change background on hover */
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu li:hover a {
+  color: #f0f7f4;
+  /* Change text color on hover */
+}
+
+/* Navigation Menu Styling */
+nav ul {
+  display: flex;
+  gap: 20px;
+  /* Space between menu items */
+  list-style: none;
+}
+
+nav ul li {
+  font-size: 14px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #3c493f;
+  /* Dark color for links */
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #f0f7f4;
+  /* Purple hover effect */
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: block;
+    /* Stack menu items vertically */
+    text-align: center;
+  }
+
+  .menu li {
+    margin: 10px 0;
+    /* Add space between stacked menu items */
+  }
+
+  .menu a {
+    font-size: 16px;
+    /* Adjust font size on smaller screens */
+  }
+}
+
+.hero {
+  height: auto;
+  margin-top: 100px;
+  margin-bottom: auto; 
+  border-color: #f0f7f4;
+  font-size: 100;
+  background-color: #b3bfbd;
+  text-align: center;
+  color: #7e8d85;
+}
+
+
+.news-item {
+
+  width: 70%;
+  /* Set the width */
+  height: 200px;
+  /* Set the height */
+  background: #b3bfbd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 3px solid #f0f7f4;
+  /* Example with dashed red border */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: right;
+}
+
+.article-title {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: left;
+}
+
+.article-date {
+  font-size: 0.9em;
+  color: #777;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.article-excerpt {
+  font-size: 1em;
+  margin-bottom: 15px;
+  color: #555;
+  text-align: left;
+}
+
+.read-more {
+  color: #3c493f;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+  text-align: right;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #3c493f;
+  background-color: #b3bfbd;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #3c493f;
+}
+
+.text-box {
+  width: 50%;
+  /* Adjust the width of the box */
+  height: fit-content;
+  padding: 15px;
+  /* Space inside the box */
+  border: 2px solid #3c493f;
+  /* Border color */
+  border-radius: 5px;
+  /* Rounded corners */
+  background-color: #b3bfbd;
+  /* Background color */
+}
+
+.text-box p {
+  font-size: 16px;
+  /* Adjust text size */
+  line-height: 1.6;
+  /* Adjust line height for better readability */
+  margin: 0;
+  /* Remove default margins from the paragraph */
+}
+
+.slideshow {
+  position: relative;
+  width: 60%;
+  /* Set width to 100% of the parent container */
+  height: 60%;
+  /* Adjust the height as needed */
+  overflow: hidden;
+  display: flex;
+  /* Enable flexible layout */
+  justify-content: center;
+  /* Center content horizontally */
+  align-items: center;
+  /* Center content vertically */
+  margin: 0 auto;
+  /* Ensures the slideshow is centered in the container */
+  border: #3c493f;
+}
+.slideshow-container {
+  margin-bottom: 30px; /* Adjust the value for more or less space */
+}
+
+
+/* Slides Wrapper */
+.slides {
+  display: flex;
+  width: 100%;
+  /* 100% for each slide */
+  animation: slide-animation 3.5s infinite;
+}
+
+/* Individual Slide */
+.slide {
+  width: 100%;
+  /* Equal to the container's width */
+  flex-shrink: 0;
+  /* Prevent shrinking */
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Animation */
+@keyframes slide-animation {
+
+  0%,
+  33% {
+    transform: translateX(0%);
+    /* Show Slide 1 */
+  }
+
+  34%,
+  66% {
+    transform: translateX(-100%);
+    /* Show Slide 2 */
+  }
+
+  67%,
+  100% {
+    transform: translateX(-200%);
+    /* Show Slide 3 */
+  }
+}
+
+.slideshow{
+  background-color: #b3bfbd;
+}
+/* About section */
+.about-section,
+.services-section,
+.contact-section {
+  margin-bottom: 10px; 
+  padding: 50px 20px;
+  background-color: #b3bfbd;
+  color: #3c493f;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+/* Footer styling */
+footer {
+  background-color: #7e8d85;
+  color: #3c493f;
+  text-align: center;
+  row-gap: 30px;
+  column-gap: 100px;
+  padding: 20px 0;
+}
+
+.footer-menu a {
+  color: white;
+  /* Default text color */
+  text-decoration: none;
+  /* Remove underline */
+  font-size: 16px;
+  text-emphasis-color: #3c493f;
+}
+
+/* Footer styling */
+footer {
+  background-color: #7e8d85;
+  color:#3c493f;
+  text-align: center;
+  row-gap: 30px;
+  column-gap: 100px;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+}
+
+.footer-column {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px; /* Ensures columns don’t shrink too much on smaller screens */
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-column p, .footer-column ul {
+  margin: 10px 0;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #3c493f;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+.newsletter input {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.newsletter button {
+  padding: 10px 20px;
+  background-color: #645f5e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.newsletter button:hover {
+  background-color: #5f5b5a;
+}
+.social-icon {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #3c493f;
+}
+
+@media (max-width: 768px) {
+  /* Header and Navigation Menu */
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .menu li {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo img {
+    height: 120px;
+  }}
+@media (max-width: 768px) {
+  .news-item {
+    width: 90%;  /* Make the news items take 90% width */
+    margin: 10px auto;  /* Center the items */
+    padding: 15px;  /* Add some padding */
+    text-align: left;  /* Align text to the left */
+    box-sizing: border-box;  /* Include padding in the width calculation */
+  }
+
+  .article-title {
+    font-size: 1.5rem;  /* Reduce the title font size */
+    margin-bottom: 10px;  /* Adjust spacing */
+  }
+
+  .article-date {
+    font-size: 0.9rem;  /* Smaller font size for date */
+    margin-bottom: 10px;  /* Adjust spacing */
+  }
+
+  .article-excerpt {
+    font-size: 1rem;  /* Adjust the excerpt font size */
+    margin-bottom: 10px;  /* Space between excerpt and read more link */
+  }
+
+  .read-more {
+    font-size: 1rem;  /* Adjust font size for read more link */
+    color: #3c493f;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .read-more:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-box {
+    width: 90%;  /* Set the width to 90% */
+    padding: 10px;  /* Reduce padding */
+  }
+
+  .text-box p {
+    font-size: 14px;  /* Smaller font size for better readability */
+  }
+}
+@media (max-width: 768px) {
+  .slideshow {
+    width: 100%;  /* Make the slideshow full width */
+    height: 200px;  /* Reduce height for mobile */
+  }
+
+  .slide img {
+    object-fit: cover;  /* Ensure images are well cropped */
+    width: 100%;  /* Full width for the image */
+    height: 100%;  /* Full height */
+  }
+}
+@media (max-width: 768px) {
+  footer {
+    padding: 20px 10px;  /* Adjust padding */
+  }
+
+  .footer-container {
+    display: block;
+    /* Stack footer columns */
+    text-align: center;
+  }
+
+  .footer-column {
+    width: 100%;
+    margin: 20px 0;  /* Add margin between columns */
+  }
+}
+@media (max-width: 768px) {
+  .services-section,
+  .contact-section {
+    padding: 30px 10px;  /* Adjust padding */
+    margin: 20px 0;  /* Add space between sections */
+  }
+
+  .about-section {
+    padding: 30px 10px;  /* Adjust padding */
+    margin: 20px 0;
+  }
+}

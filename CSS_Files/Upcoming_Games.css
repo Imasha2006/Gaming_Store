@@ -1,0 +1,485 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #7e8d85;
+  height: auto;
+  border-bottom: 3px solid #ffffff;
+  /* Purple bottom border */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #b3bfbd;
+  /* Light gray background */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  height: auto;
+}
+
+/* Logo Styling */
+.logo img {
+  height: 150px;
+  /* Adjust the logo size */
+  width: auto;
+  /* Maintain the aspect ratio */
+  overflow: hidden;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  width: fit-content;
+}
+
+.menu li {
+  margin: 0 2px;
+  padding: 10px 20px;
+  border: 2px solid #ffffff;
+  /* Creates the box effect */
+  border-radius: 8px;
+  background-color: #7e8d85;
+  display: flex;
+  /* Enable flexbox on li */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu li:hover {
+  background-color: #555;
+  /* Change background on hover */
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu li:hover a {
+  color: #f0f7f4;
+  /* Change text color on hover */
+}
+
+/* Navigation Menu Styling */
+nav ul {
+  display: flex;
+  gap: 20px;
+  /* Space between menu items */
+  list-style: none;
+}
+
+nav ul li {
+  font-size: 14x;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  /* Dark color for links */
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #f0f7f4;
+  /* Purple hover effect */
+}
+
+.hero {
+  font-size: 100;
+  background-color: #b3bfbd;
+  ;
+  text-align: center;
+  
+}
+
+
+
+.hero h1 {
+  font-size: 3rem;
+  color: #3c493f;
+  background-color: #b3bfbd;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: white;
+}
+
+
+.text-box {
+margin-top: auto;
+  border: 2px solid white;
+  /* Add a border */
+  padding: 15px;
+  /* Add space inside the box */
+  border-radius: 10px;
+  /* Rounded corners (optional) */
+  background-color: #7e8d85;
+  /* Light background color */
+  width: 50%;
+  /* Adjust the width of the text box */
+  margin: 10px auto;
+  /* Center it horizontally */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  /* Optional: Add a shadow */
+}
+.text-box-container{display: grid;
+  place-items: center; /* Center horizontally and vertically */}
+
+.container {
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  height: auto;
+  margin: 20px;
+  margin-bottom: 10px;
+}
+
+/* Container Styling */
+.image-container {
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  flex-direction: column;
+  /* Stack rows vertically */
+  gap: 20px;
+  /* Space between rows */
+  width: 80%;
+  /* Adjust the container width */
+
+
+}
+
+/* Row Styling */
+.row {
+  display: flex;
+  /* Enable flexbox for rows */
+  justify-content: space-around;
+  /* Distribute images evenly */
+  gap: 15px;
+  /* Space between images */
+}
+
+/* Image Styling */
+.image {
+  flex: 1;
+  /* Allow images to flex equally */
+  max-width: 30%;
+  /* Limit maximum width for images */
+  align-items: center;
+}
+
+.image img {
+  width: 100%;
+  /* Make images responsive */
+  height: auto;
+  /* Maintain aspect ratio */
+  border-radius: 8px;
+  /* Optional: Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow */
+  align-items: center;
+  justify-items: center;
+}
+
+.parent-container {
+  display: grid;
+  place-items: center;
+  /* Center horizontally and vertically */
+
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 Columns */
+  grid-gap: 20px;
+  /* Space between items */
+  padding: 20px;
+  width: 80%;
+  max-width: 1200px;
+  background-color: #7e8d85;
+  border: 1px solid #3c493f;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: center;
+  /* Center content vertically */
+  justify-content: center;
+  /* Center content horizontally */
+  margin-bottom: 10px;
+
+}
+
+.grid-item:hover {
+  transform: translateY(-10px);
+  /* Moves the item slightly upward */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  /* Adds a stronger shadow */
+  border-color: #007BFF;
+  /* Changes the border color */
+}
+
+/* Grid Items */
+.grid-item {
+  display: flex;
+  text-align: center;
+  background-color: #bed3b2;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-items: center;
+}
+
+.grid-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  align-items: center;
+  justify-items: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  /* Smooth zoom effect */
+}
+
+.grid-item:hover img {
+  transform: scale(1.05);
+  /* Slightly zooms the image */
+}
+
+.description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(94, 129, 139, 0.7);
+  /* Semi-transparent background */
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0;
+  /* Hidden by default */
+  transform: translateY(100%);
+  /* Move below the image */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Smooth transition */
+  display: flex; /* Flex to center text */
+  justify-content: center;
+  align-items: center;
+}
+
+
+.grid-item:hover .description {
+  opacity: 1;
+  /* Make it visible */
+  transform: translateY(0);
+  /* Slide up into view */
+}
+
+.grid-item p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.grid-item:hover p {
+  color: #465666;
+  /* Changes text color on hover */
+}
+
+
+/* About section */
+.about-section,
+.services-section,
+.contact-section {
+  background-color: #b3bfbd;
+  color: #3c493f;
+  text-align: center;
+}
+
+/* Footer styling */
+footer {
+  background-color: #7e8d85;
+  color: #3c493f;
+  text-align: center;
+  row-gap: 30px;
+  column-gap: 100px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  /* Allows columns to wrap on smaller screens */
+}
+
+.footer-column {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px;
+  /* Ensures columns don’t shrink too much on smaller screens */
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-column p,
+.footer-column ul {
+  margin: 10px 0;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #3c493f;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.newsletter {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-align: center; /* Center text for inputs and buttons */
+  gap: 10px; /* Add spacing between input, button, and heading */
+  margin: 20px auto; /* Center the newsletter within its container */
+}
+.newsletter input {
+  padding: 10px;
+  width: 80%; /* Adjust width for responsiveness */
+  max-width: 400px; /* Ensure a maximum width for larger screens */
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.newsletter button {
+  padding: 10px 20px;
+  background-color: #645f5e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.newsletter button:hover {
+  background-color: #5f5b5a;
+}
+
+.social-icon {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #3c493f;
+}
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns on smaller screens */
+    width: 90%;
+    justify-content: center; /* Center grid items horizontally */
+    align-items: center; /* Center grid items vertically */
+  }
+
+  /* Adjust the header layout */
+  header {
+    flex-direction: column; /* Stack logo and menu */
+    padding: 15px;
+  }
+
+  .logo img {
+    height: 120px; /* Slightly larger logo on smaller screens */
+  }
+
+  .menu {
+    flex-direction: column; /* Stack menu items vertically */
+    width: 100%; /* Make the menu full width */
+  }
+
+
+  .menu li {
+    margin: 5px 0; /* Adjust menu item margins */
+    width: 100%; /* Make each item full width */
+    text-align: center; /* Center-align text */
+  }
+
+
+  .hero p {
+    font-size: 0.9rem; /* Adjust font size */
+  }
+
+ 
+
+  footer {
+    padding: 20px; /* Adjust footer padding */
+  }
+}
+
+/* For very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr); /* Single column layout */
+    width: 95%;
+  }
+  
+
+  .menu li {
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+}
+@media (max-width: 768px) {
+  .text-box {
+    margin: 5px; /* Reduce margin for mobile */
+    padding: 10px; /* Reduce padding for mobile */
+    width: 90%; /* Full width with small side margins */
+  }
+}
+
+@media (max-width: 480px) {
+  .text-box {
+    margin: 2px; /* Minimal margin for very small screens */
+    padding: 5px; /* Compact padding */
+    width: 95%; /* Almost full width */
+  }
+}

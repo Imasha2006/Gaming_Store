@@ -1,0 +1,334 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: white; /* Light beige color for background */
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #7e8d85;
+  height: auto;
+  border-bottom: 3px solid #ffffff; /* Purple bottom border */
+}
+
+/* Logo Styling */
+.logo img {
+  height: 150px; /* Adjust the logo size */
+  width: auto; /* Maintain the aspect ratio */
+  overflow: hidden;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+  width: fit-content;
+}
+
+.menu li {
+  margin: 0 2px;
+  padding: 10px 20px;
+  border: 2px solid #ffffff; /* Creates the box effect */
+  border-radius: 8px;
+  background-color: #7e8d85;
+  display: flex;/* Enable flexbox on li */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu li:hover {
+  background-color: #555; /* Change background on hover */
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu li:hover a {
+  color: #f0f7f4; /* Change text color on hover */
+}
+/* Navigation Menu Styling */
+nav ul {
+  display: flex;
+  gap: 20px; /* Space between menu items */
+  list-style: none;
+}
+
+nav ul li {
+  font-size: 14px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #3c493f; /* Dark color for links */
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #f0f7f4; /* Purple hover effect */
+}
+
+
+.hero {
+  font-size: 100;
+background-color: #b3bfbd;;
+text-align: center;
+padding: 100px 20px;
+color: #3c493f;
+padding-top: 30px;
+}
+
+.hero h1 {
+font-size: 3rem;
+color: #3c493f;
+background-color: #b3bfbd;
+}
+
+.hero p {
+font-size: 1.2rem;
+color: #3c493f;
+}
+.image-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next row if necessary */
+  gap: 20px; /* Adds space between items */
+  justify-content: space-between; /* Distributes space evenly between items */
+}
+
+.image-item {
+  position: relative;
+  flex: 1 1 18%; /* 18% width for each item with some flexibility */
+  max-width: 18%; /* Ensures no item exceeds 18% of container width */
+  box-sizing: border-box;
+}
+
+.image-item img {
+  width: 100%; /* Ensures the image fills the container */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 8px; /* Optional: Adds rounded corners to the images */
+  transition: transform 0.3s ease; /* Optional: Adds a zoom effect */
+}
+.description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark background for text */
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.image-item:hover .description {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-item:hover img {
+  transform: scale(1.05); /* Optional: Zoom effect on hover */
+}
+
+h3{padding-top: 20px;
+  color: #555;}
+/* About section */
+.about-section, .services-section, .contact-section {
+padding: 50px 20px;
+background-color: #b3bfbd;
+color: #3c493f;
+text-align: center;
+}
+
+/* Footer styling */
+footer {
+  background-color: #7e8d85;
+  color:#3c493f;
+  text-align: center;
+  row-gap: 30px;
+  column-gap: 100px;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+}
+
+.footer-column {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px; /* Ensures columns don’t shrink too much on smaller screens */
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-column p, .footer-column ul {
+  margin: 10px 0;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #3c493f;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+.newsletter {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-align: center; /* Center text for inputs and buttons */
+  gap: 10px; /* Add spacing between input, button, and heading */
+  margin: 20px auto; /* Center the newsletter within its container */
+}
+.newsletter input {
+  padding: 10px;
+  width: 80%; /* Adjust width for responsiveness */
+  max-width: 400px; /* Ensure a maximum width for larger screens */
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.newsletter button {
+  padding: 10px 20px;
+  background-color: #645f5e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.newsletter button:hover {
+  background-color: #5f5b5a;
+}
+.social-icon {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #3c493f;
+}
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  /* Header on mobile */
+    /* Header and Navigation Menu */
+    header {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 20px;
+    }
+  
+    .menu {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 10px 0;
+    }
+  
+    .menu li {
+      margin: 10px 0;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .logo img {
+      height: 120px;
+    }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .image-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: center; /* Centers the images horizontally */
+    align-items: center; /* Centers the images vertically */
+  }
+
+  .image-item {
+    flex: 1 1 45%; /* 45% width for each item */
+    max-width: 45%;
+    justify-content: center; /* Centers the images horizontally */
+    align-items: center; /* Centers the images vertically */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Header on smaller mobile */
+  header {
+    padding: 10px 15px;
+  }
+
+  .logo img {
+    height: 100px; /* Smaller logo */
+  }
+
+  .menu {
+    flex-direction: column; /* Stack menu items vertically */
+    align-items: center;
+  }
+
+  .menu li {
+    margin: 5px 0;
+    padding: 10px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .image-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: center; /* Centers the images horizontally */
+    align-items: center; /* Centers the images vertically */
+  }
+
+  .image-item {
+    flex: 1 1 48%; /* Slightly bigger columns for mobile */
+    max-width: 48%;
+    justify-content: center; /* Centers the images horizontally */
+    align-items: center; /* Centers the images vertically */
+  }
+}

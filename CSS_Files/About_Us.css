@@ -1,0 +1,596 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  color: #3c493f;
+  margin-top: auto;
+  font-size: large;
+  background-color: white;
+  /* Light beige color for background */
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #7e8d85;
+  height: auto;
+  border-bottom: 3px solid #ffffff;
+  /* Purple bottom border */
+}
+
+/* Logo Styling */
+.logo img {
+  height: 150px;
+  /* Adjust the logo size */
+  width: auto;
+  /* Maintain the aspect ratio */
+  overflow: hidden;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+  width: fit-content;
+}
+
+.menu li {
+  margin: 0 2px;
+  padding: 10px 20px;
+  border: 2px solid #ffffff;
+  /* Creates the box effect */
+  border-radius: 8px;
+  background-color: #7e8d85;
+  display: flex;
+  /* Enable flexbox on li */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu li:hover {
+  background-color: #555;
+  /* Change background on hover */
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu li:hover a {
+  color: #f0f7f4;
+  /* Change text color on hover */
+}
+
+/* Navigation Menu Styling */
+nav ul {
+  display: flex;
+  gap: 0px;
+  /* Space between menu items */
+  list-style: none;
+}
+
+nav ul li {
+  font-size: 16px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #3c493f;
+  /* Dark color for links */
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #f0f7f4;
+  /* Purple hover effect */
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  /* Spacing between the map and image */
+}
+
+.map {
+  background-color: #7e8d85;
+  padding: 10px;
+  border: 1px solid #7e8d85;
+  /* Optional styling */
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  /* Optional styling */
+}
+
+.branch-grid {
+  display: grid;
+  /* Enable Grid Layout */
+  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Adjust columns based on available space */
+  gap: 20px;
+  /* Space between columns and rows */
+  max-width: 1200px;
+  /* Limit grid width */
+  margin: 20px auto;
+  /* Center the grid with some spacing around it */
+  padding: 10px;
+  /* Add padding for better spacing */
+}
+
+/* Branch Item */
+.branch {
+  background-color: #7e8d85;
+  /* White background */
+
+  border-radius: 8px;
+  /* Rounded corners */
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  /* Smooth hover effects */
+}
+
+.branch:hover {
+  transform: translateY(-5px);
+  /* Lift effect on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  /* Enhanced shadow */
+}
+
+/* Title */
+.branch h3 {
+  color: white;
+  margin-bottom: 15px;
+  /* Adjust spacing below the title */
+}
+
+.branch p {
+  color: white;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  /* Improve readability */
+}
+
+/* Map Section */
+.map img {
+  margin-bottom: 20px;
+  /* Adds space below the map */
+  width: 100%;
+  height: auto;
+  background-color: #7e8d85;
+  padding: 10px;
+  text-align: center;
+  border-radius: 3px;
+  border: #7e8d85;
+}
+
+/* Slideshow Section */
+.slideshow {
+  margin-top: 20px;
+  /* Optional: Adds space above the image */
+  position: relative;
+  border: 1px solid #7e8d85;
+  width: 100%;
+  /* Full width of the container */
+  max-width: 800px;
+  /* Limit the width for larger screens */
+  height: 400px;
+  /* Set a fixed height */
+  margin: 0 auto;
+  /* Center the slideshow */
+  overflow: hidden;
+  /* Hide any overflow content */
+  border: 2px solid #333;
+  /* Optional: Border for styling */
+  border-radius: 8px;
+  /* Rounded corners */
+  display: flex;
+  background-color: #7e8d85;
+  /* Background color for fallback */
+}
+
+.store {
+  display: flex;
+  flex-direction: column;
+  /* Stack elements vertically */
+  gap: 20px;
+  /* Adds spacing between map and image */
+}
+
+.slides {
+  display: flex;
+  /* Enable flexible layout for slides */
+  border: 1px solid #ccc;
+  width: 100%;
+  /* Set width of the wrapper */
+  animation: slide-animation 3.5s infinite;
+  /* Slide animation */
+}
+
+.slide {
+  flex-shrink: 0;
+  /* Prevent shrinking */
+  width: 100%;
+  /* Match the container width */
+  height: 100%;
+  /* Match the container height */
+}
+
+.slide img {
+  width: 100%;
+  /* Ensure the image fits the width */
+  height: 100%;
+  /* Ensure the image fits the height */
+  object-fit: cover;
+  /* Crop the image proportionally */
+  border-radius: 8px;
+  /* Match the container's border radius */
+  border: 1px solid #ccc;
+}
+
+
+.slideshow button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Position Buttons */
+.slideshow .prev {
+  left: 10px;
+}
+
+.slideshow .next {
+  right: 10px;
+}
+
+
+
+/* Slideshow Container */
+.slideshow {
+  position: relative;
+  width: auto;
+  /* Full width of the container */
+  height: auto;
+  /* Set a fixed height */
+  margin: 0 auto;
+  /* Center the slideshow */
+  overflow: hidden;
+  /* Hide any overflow content */
+  border: 0px solid #333;
+  /* Optional: Border for styling */
+  border-radius: 8px;
+  /* Rounded corners */
+  display: flex;
+  align-items: center;
+  /* Center content vertically */
+  justify-content: center;
+  /* Center content horizontally */
+  background-color: #f4f4f4;
+  /* Background color for fallback */
+}
+
+/* Slides Wrapper */
+.slides {
+  display: flex;
+  /* Enable flexible layout for slides */
+  width: 100%;
+  /* Set width of the wrapper */
+  animation: slide-animation 3.5s infinite;
+  /* Slide animation */
+}
+
+/* Individual Slide */
+.slide {
+  flex-shrink: 0;
+  /* Prevent shrinking */
+  width: 100%;
+  /* Match the container width */
+  height: 70%;
+  /* Match the container height */
+}
+
+.slide img {
+  width: 100%;
+  /* Ensure the image fits the width */
+  height: auto;
+  /* Ensure the image fits the height */
+  object-fit: cover;
+  /* Crop the image proportionally */
+  border-radius: 8px;
+  /* Match the container's border radius */
+  display: block;
+  /* Removes space below images */
+}
+
+
+
+/* Position Buttons */
+.slideshow .prev {
+  left: 10px;
+}
+
+.slideshow .next {
+  right: 10px;
+}
+
+@keyframes slide-animation {
+  0% { transform: translateX(0); }
+  33% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+}
+
+.slideshow .slides {
+  display: flex;
+  width: 300%; /* Total width of all slides combined */
+  animation: slide-animation 12s infinite;
+}
+
+.slide {
+  width: 100%; /* Ensure each slide takes 100% of the container */
+  flex-shrink: 0;
+}
+
+
+/* Paragraphs */
+.branch p {
+  color: white;
+  margin-bottom: 10px;
+}
+
+
+.map {
+  text-align: center;
+  background-color: #b3bfbd;
+}
+
+.hero {
+  background-color: #b3bfbd;
+  text-align: center;
+  padding: 100px 20px;
+  color: #3c493f;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #3c493f;
+  background-color: #b3bfbd;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  font-size: 1.2rem;
+  color: #3c493f;
+}
+
+
+/* About section */
+.about-section,
+.services-section,
+.contact-section {
+  padding: 50px 20px;
+  background-color: #b3bfbd;
+  color: #3c493f;
+  text-align: center;
+}
+
+/* Basic table styling */
+.my-table {
+  width: 80%;
+  /* Set the table width */
+  margin: 20px auto;
+  /* Center the table on the page */
+  border-collapse: collapse;
+  /* Remove space between table cells */
+  text-align: center;
+  /* Align text to the center */
+}
+
+/* Table header styling */
+.my-table th {
+  background-color: #3c493f;
+  /* Green background */
+  color: #b3bfbd;
+  /* White text */
+  padding: 10px;
+  /* Padding around text */
+  font-weight: bold;
+  /* Bold text */
+}
+
+/* Table cell styling */
+.my-table td {
+  border: 1px solid #ddd;
+  /* Light gray border around cells */
+  padding: 8px;
+  /* Padding inside cells */
+}
+
+/* Row hover effect */
+.my-table tr:hover {
+  background-color: gray;
+  /* Light gray background when hovering over rows */
+  color: black;
+}
+
+/* Footer styling */
+footer {
+  background-color: #7e8d85;
+  color:#3c493f;
+  text-align: center;
+  row-gap: 30px;
+  column-gap: 100px;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+}
+
+.footer-column {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px; /* Ensures columns don’t shrink too much on smaller screens */
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-column p, .footer-column ul {
+  margin: 10px 0;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #3c493f;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+.newsletter {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-align: center; /* Center text for inputs and buttons */
+  gap: 10px; /* Add spacing between input, button, and heading */
+  margin: 20px auto; /* Center the newsletter within its container */
+}
+.newsletter input {
+  padding: 10px;
+  width: 80%; /* Adjust width for responsiveness */
+  max-width: 400px; /* Ensure a maximum width for larger screens */
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.newsletter button {
+  padding: 10px 20px;
+  background-color: #645f5e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.newsletter button:hover {
+  background-color: #5f5b5a;
+}
+.social-icon {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #3c493f;
+}
+
+@media (max-width: 768px) {
+
+  /* Header and Navigation Menu */
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .menu li {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo img {
+    height: 120px;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 50px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .branch-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+    padding: 10px;
+  }
+
+  .slideshow {
+    height: 200px; /* Smaller height for mobile */
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+/* Media Queries for Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .branch-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+
+  .slideshow {
+    height: 300px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

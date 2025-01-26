@@ -1,0 +1,392 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  justify-content: center; /* Center content horizontally */
+  background-color: #b3bfbd; /* Light beige color for background */
+ 
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  padding-bottom: 20px; 
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #7e8d85;
+  height: auto;
+  border-bottom: 3px solid #ffffff; /* Purple bottom border */
+}
+
+/* Logo Styling */
+.logo img {
+  height: 150px; /* Adjust the logo size */
+  width: auto; /* Maintain the aspect ratio */
+  overflow: hidden;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+  width: fit-content;
+}
+
+.menu li {
+  margin: 0 2px;
+  padding: 10px 20px;
+  border: 2px solid #ffffff; /* Creates the box effect */
+  border-radius: 8px;
+  background-color: #7e8d85;
+  display: flex;/* Enable flexbox on li */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu li:hover {
+  background-color: #555; /* Change background on hover */
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu li:hover a {
+  color: #f0f7f4; /* Change text color on hover */
+}
+/* Navigation Menu Styling */
+nav ul {
+  display: flex;
+  gap: 20px; /* Space between menu items */
+  list-style: none;
+}
+
+nav ul li {
+  font-size: 14px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #3c493f; /* Dark color for links */
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #f0f7f4; /* Purple hover effect */
+}
+
+/* FAQ Section Styling */
+#faq-section {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #7e8d85;
+  color: white;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 40px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
+
+#faq-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Accordion Styling */
+.accordion-item {
+  margin-top:10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  
+}
+
+.accordion-toggle {
+  display: none; /* Hide the checkbox */
+}
+
+.accordion-button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #fff;
+  color: #3c493f;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  transition: background-color 0.3s;
+}
+
+.accordion-button:hover {
+  background-color: #eaeaea;
+}
+
+.accordion-content {
+  padding: 15px;
+  font-size: 14px;
+  background-color: #b3bfbd;
+  color: #000;
+  display: none; /* Hidden by default */
+}
+
+/* Show content when checkbox is checked */
+.accordion-toggle:checked + .accordion-button + .accordion-content {
+  display: block;
+  
+}
+/* Contact Form Section Styling */
+#contact-form-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #7e8d85;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form-section p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #f0f7f4;
+}
+
+/* Form Styling */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+#contact-form label {
+  align-self: flex-start;
+  font-weight: bold;
+  color: #f0f7f4;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #888;
+}
+
+#contact-form button {
+  padding: 10px 20px;
+  background-color: #3c493f;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#contact-form button:hover {
+  background-color: #555;
+}
+
+
+
+
+/* About section */
+.about-section, .services-section, .contact-section {
+padding: 50px 20px;
+background-color: #b3bfbd;
+color: #3c493f;
+text-align: center;
+}
+
+/* Footer styling */
+footer {
+  background-color: #7e8d85;
+  color:#3c493f;
+  text-align: center;
+  row-gap: 30px;
+  column-gap: 100px;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+}
+
+.footer-column {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px; /* Ensures columns don’t shrink too much on smaller screens */
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-column p, .footer-column ul {
+  margin: 10px 0;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #3c493f;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+.newsletter {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-align: center; /* Center text for inputs and buttons */
+  gap: 10px; /* Add spacing between input, button, and heading */
+  margin: 20px auto; /* Center the newsletter within its container */
+}
+.newsletter input {
+  padding: 10px;
+  width: 80%; /* Adjust width for responsiveness */
+  max-width: 400px; /* Ensure a maximum width for larger screens */
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.newsletter button {
+  padding: 10px 20px;
+  background-color: #645f5e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.newsletter button:hover {
+  background-color: #5f5b5a;
+}
+.social-icon {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #3c493f;
+}
+/* Media Queries for Smaller Screens */
+@media screen and (max-width: 768px) {
+  /* Stack navigation menu vertically on mobile */
+  .menu {
+    flex-direction: column;
+  }
+  
+  /* Header layout adjustment */
+  header {
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* FAQ accordion and form adjustments */
+  #faq-section h1 {
+    font-size: 24px;
+  }
+  
+  /* Adjust form elements */
+  #contact-form input,
+  #contact-form textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Footer layout for mobile */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-column {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Adjust social media links */
+  .social-icon {
+    margin: 0 8px;
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  .menu li {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    width: 90%;
+  }
+  
+  /* Adjust form input and button size */
+  #contact-form input,
+  #contact-form textarea {
+    width: 90%;
+    font-size: 14px;
+  }
+  
+  /* Footer adjustments */
+  footer {
+    padding: 15px 0;
+  }
+  
+  .footer-column {
+    margin-bottom: 15px;
+  }
+}
