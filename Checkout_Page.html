@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./Images2/title.png" type="image/x-icon">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="./CSS_Files/Test.css">
+    <link rel="stylesheet" href="./CSS_Files/Test_2.css">
+    <script src="./JS_Files/checkout.js" defer></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=your-client-id-here&currency=USD"></script>
+
+
+</head>
+
+<body>
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+
+        <h2>Order Summary</h2>
+        <table id="checkoutTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <h3>Total: $<span id="checkoutTotal">0</span></h3>
+
+        <h2>Customer Details</h2>
+        <form id="checkoutForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required pattern="[A-Za-z\s]+" title="Please enter letters only">
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" required>
+
+            <label for="payment">Payment Method:</label>
+            <select id="payment" required>
+                <option value="card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+            </select>
+
+            <button type="submit">Pay</button>
+        </form>
+        
+        <label for="card-element">Credit Card:</label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <div id="card-errors" role="alert"></div>
+        <div id="paypal-button-container"></div>
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+.checkout-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #cfcfcf;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    border: 1px solid #ddd;
+    background: linear-gradient(to bottom right, #f9f9f9, #c7c5c5);
+}
+
+
+h1, h2, h3 {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: 500;
+    display: block;
+    margin-top: 15px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+input:focus + label,
+select:focus + label {
+    color: #999999;
+}
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #929292;
+    outline: none;
+    box-shadow: 0 0 5px rgba(94, 158, 255, 0.5);
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #979797;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #838586;
+    transform: translateY(-2px);
+}
+button:active {
+    background-color: #3678c3;
+    transform: translateY(1px);
+}
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(169, 180, 196, 0.7);
+}
+button.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+button.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .checkout-container {
+        padding: 20px;
+        margin: 20px;
+    }
+}
+#checkoutTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#checkoutTable th, #checkoutTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#checkoutTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+#card-element {
+    background-color: #f9f9f9;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#card-errors {
+    color: #e74c3c;
+    font-size: 14px;
+}
+#checkoutTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#checkoutTable tr:hover {
+    background-color: #f1f1f1;}
+    .success-message {
+        padding: 15px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 8px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .error-message {
+        padding: 15px;
+        background-color: #e74c3c;
+        color: white;
+        border-radius: 8px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    body{background-color: #a7a7a775;}

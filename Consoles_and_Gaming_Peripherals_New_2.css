@@ -1,0 +1,657 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+  padding: 0;
+  background-color: #a7a7a775;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgb(135, 151, 98);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #a7a7a775; /* Light beige color for background */
+  }
+  
+  /* Header Styling */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #7e8d85;
+    height: auto;
+    border-bottom: 3px solid #ffffff; /* Purple bottom border */
+  }
+  
+  /* Logo Styling */
+  .logo img {
+    height: 150px; /* Adjust the logo size */
+    width: auto; /* Maintain the aspect ratio */
+    overflow: hidden;
+  }
+  
+  
+  .menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
+  }
+  
+  .menu li {
+    margin: 0 2px;
+    padding: 10px 20px;
+    border: 2px solid #ffffff; /* Creates the box effect */
+    border-radius: 8px;
+    background-color: #7e8d85;
+    display: flex;/* Enable flexbox on li */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .menu li:hover {
+    background-color: #555; /* Change background on hover */
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .menu li:hover a {
+    color: #f0f7f4; /* Change text color on hover */
+  }
+  /* Navigation Menu Styling */
+  nav ul {
+    display: flex;
+    gap: 20px; /* Space between menu items */
+    list-style: none;
+  }
+  
+  nav ul li {
+    font-size: 14px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #3c493f; /* Dark color for links */
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    color: #f0f7f4; /* Purple hover effect */
+  }
+  
+  
+  .hero {
+    font-size: 100;
+  background-color: #b3bfbd;;
+  text-align: center;
+  
+  padding: 100px 20px;
+  color: rgb(255, 255, 255);
+  }
+  
+  .hero h1 {
+    padding-top: 25px;
+  font-size: 3rem;
+  color: #3c493f;
+  background-color: #b3bfbd;
+  }
+  
+  .hero p {
+  font-size: 1.2rem;
+  color: #3c493f;
+  }
+  
+  /* Item box */
+  .box {
+    position: relative; /* Needed for positioning the button */
+    display: flex;
+    align-items: center;
+    background-color: #7e8d85;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    transition: all 0.3s ease; /* Smooth transition for all changes */
+  }
+  
+  /* Item box in hover */
+  .box:hover {
+    background-color: #e0e0e0; /* Change background on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    color: #7e8d85;
+  }
+  
+  .side-image {
+    width: 30%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .box:hover .side-image {
+    transform: scale(1.05); /* Slightly enlarge the image */
+  
+  }
+  
+  .text-box {
+    width: 55%;
+    padding: 20px;
+  }
+  .box:hover .text-box p {
+    color: #7e8d85; /* Change the paragraph color to blue on hover */
+  }
+  .text-box h2 {
+    margin-top: 0;
+  }
+  
+  .text-box p {
+    font-size: 16px;
+    color: white;
+  }
+  
+  /* Buy now button */
+  .box button {
+    position: absolute;
+    bottom: 20px; /* Positioning from the bottom */
+    right: 20px; /* Positioning from the right */
+    padding: 10px 15px;
+    background-color: #b3bfbd;
+    color: #403f42;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+  /* Buy now button hover*/
+  .box button:hover {
+    
+    color: #ffffff;
+    background-color: #7e8d85;
+  }
+  .price {
+    padding-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #5e5757;
+    margin-bottom: 20px;}
+  /* About section */
+  .about-section,.g-box, .services-section, .contact-section {
+  padding: 50px 20px;
+  background-color: #b3bfbd;
+  color: #3c493f;
+  text-align: center;
+  }
+  
+  /* Footer styling */
+  footer {
+    background-color: #7e8d85;
+    color:#3c493f;
+    text-align: center;
+    row-gap: 30px;
+    column-gap: 100px;
+    padding: 20px 0;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+  }
+  
+  .footer-column {
+    flex: 1;
+    margin: 10px;
+    min-width: 250px; /* Ensures columns don’t shrink too much on smaller screens */
+  }
+  
+  .footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  
+  .footer-column p, .footer-column ul {
+    margin: 10px 0;
+  }
+  
+  .footer-column ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-column a {
+    text-decoration: none;
+    color: #3c493f;
+  }
+  
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+  .newsletter {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center text for inputs and buttons */
+    gap: 10px; /* Add spacing between input, button, and heading */
+    margin: 20px auto; /* Center the newsletter within its container */
+  }
+  .newsletter input {
+    padding: 10px;
+    width: 80%; /* Adjust width for responsiveness */
+    max-width: 400px; /* Ensure a maximum width for larger screens */
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  .newsletter button {
+    padding: 10px 20px;
+    background-color: #645f5e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .newsletter button:hover {
+    background-color: #5f5b5a;
+  }
+  .social-icon {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .social-icon:hover {
+    color: #3c493f;
+  }
+  /* Mobile View */
+  @media (max-width: 768px) {
+  
+    /* Header and Navigation Menu */
+    header {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 20px;
+    }
+  
+    .menu {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 10px 0;
+    }
+  
+    .menu li {
+      margin: 10px 0;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .logo img {
+      height: 120px;
+    }
+  
+    /* Hero Section */
+    .hero {
+      padding: 50px 20px;
+    }
+  
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .hero p {
+      font-size: 1rem;
+    }
+  
+    /* Box Layout */
+    .box {
+      flex-direction: column;
+      width: 90%;
+      padding: 15px;
+      margin: 20px auto;
+    }
+  
+    .side-image {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  
+    .text-box {
+      width: 100%;
+      text-align: center;
+    }
+  
+    /* Footer */
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-column {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .newsletter input {
+      width: 90%;
+    }
+  
+    .social-icon {
+      font-size: 20px;
+    }
+  }
+  
+  /* Tablet View */
+  @media (max-width: 1024px) {
+  
+    .menu li {
+      margin: 0 10px;
+    }
+  
+    .hero {
+      padding: 60px 20px;
+    }
+  
+    .box {
+      width: 80%;
+      padding: 20px;
+    }
+  
+    .side-image {
+      width: 40%;
+    }
+  
+    .text-box {
+      width: 55%;
+    }
+  }
+  .checkout-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.hidden {
+    display: none;
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.favourite-buttons {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.favourite-buttons button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.favourite-buttons button:hover {
+  background-color: #45a049;
+}
+#cartTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+#cartTable th,
+#cartTable td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+#cartTable th {
+  background-color: #979797;
+  color: white;
+  font-size: 16px;
+}
+
+#cartTable td input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  transition: border 0.3s ease;
+}
+
+#cartTable td input[type="number"]:focus {
+  outline: none;
+  border-color: #7e8d85;
+  background-color: #ffffff;
+}
+
+#totalPrice {
+  font-weight: bold;
+  font-size: 18px;
+  color: #5b866d;
+}
+
+h2, h3 {
+  margin-top: 30px;
+  color: #333;
+}
+.box img {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+}
+
+/* Initially hide all section content */
+.section-content {
+  display: none;
+}
+
+/* Add some basic styles to make the heading look clickable */
+h1 {
+  cursor: pointer;
+  color: #333;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+h1:hover {
+  color: #969a9e;
+}
+.section-content {
+  display: none;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #7e8d85;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.badge {
+  position: relative;
+  display: inline-block;
+  font-size: 24px;
+}
+
+.badge::after {
+  content: attr(data-count);
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: crimson;
+  color: white;
+  font-size: 12px;
+  padding: 4px 6px;
+  border-radius: 50%;
+  line-height: 1;
+  min-width: 20px;
+  text-align: center;
+}
+/* Shared Button Style */
+.favourite-buttons button {
+  position: relative;
+  margin: 10px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #bbc0bb, #919191);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.favourite-buttons button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #5f635f, #b5bbb5);
+}
+
+/* Individual Styling (Optional) */
+.buy-now {
+  background: linear-gradient(135deg, #ff5722, #ff7043);
+}
+
+.buy-now:hover {
+  background: linear-gradient(135deg, #e64a19, #f4511e);
+}
+
+.add-fav {
+  background: linear-gradient(135deg, #f06292, #f48fb1);
+}
+
+.add-fav:hover {
+  background: linear-gradient(135deg, #ec407a, #f06292);
+}
+
+.apply-fav {
+  background: linear-gradient(135deg, #2196F3, #64B5F6);
+}
+
+.apply-fav:hover {
+  background: linear-gradient(135deg, #1976D2, #42A5F5);
+}
+
+/* Optional Icon Animation (using pseudo-element) */
+.favourite-buttons button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.favourite-buttons button:hover::after {
+  opacity: 1;
+}
+.favourite-buttons {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 20px; /* space between buttons */
+  flex-wrap: wrap; /* wrap to next line on small screens */
+  margin-top: 20px;
+}
+.section-heading {
+  background-color: #cccccc;
+  color: white;
+  padding: 15px;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 90%;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.section-heading:hover {
+  background-color: #e7e7e7;
+}
+.section-wrapper {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  border-top: 2px dashed #ccc;
+}
