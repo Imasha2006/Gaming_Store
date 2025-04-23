@@ -3,7 +3,10 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Save cart to localStorage
 function saveCart() {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
 }
 
 // Add item to cart
