@@ -1,5 +1,3 @@
-
-
 // Save cart to localStorage
 function saveCart() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
