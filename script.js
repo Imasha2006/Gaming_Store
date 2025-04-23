@@ -1,5 +1,4 @@
-// Load cart from localStorage or start with empty
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 
 // Save cart to localStorage
 function saveCart() {
