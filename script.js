@@ -181,7 +181,7 @@ function setupFavourites() {
             const backButton = document.createElement("button");
             backButton.textContent = "Go Back";
             backButton.addEventListener("click", () => {
-                window.location.href = "Consoles_and_Gaming_Peripherals_New.html"; // Change if needed
+                window.location.href = "./Consoles_and_Gaming_Peripherals_New.html"; // Change if needed
             });
             container.appendChild(backButton);
 
