@@ -8,7 +8,7 @@ function saveCart() {
 
 // Add item to cart
 function addToCart(name, price, imageUrl) {
-    // This should be inside your addToCart function
+    
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push(product);
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -74,12 +74,18 @@ document.querySelectorAll(".quantity-input").forEach(function (input) {
     });
 }); 
 
-// Update cart table (cart.html)
+
 function updateCartTable() {
     const tbody = document.querySelector("#cartTable tbody");
     if (!tbody) return;
 
     tbody.innerHTML = "";
+    // Re-populate with updated cart data
+    cartItems.forEach(item => {
+    let row = document.createElement("tr");
+    row.innerHTML = `<td>${item.name}</td><td>${item.price}</td>`;
+    tbody.appendChild(row);
+});
     let total = 0;
 
     cart.forEach((item, index) => {
@@ -182,11 +188,11 @@ function setupFavourites() {
 
             container.innerHTML = "<h1>Your Favourites</h1>";
 
-            // ✅ Go back button fixed
+            
             const backButton = document.createElement("button");
             backButton.textContent = "Go Back";
             backButton.addEventListener("click", () => {
-                window.location.href = "Consoles_and_Gaming_Peripherals_New.html"; // Change if needed
+                window.location.href = "./Consoles_and_Gaming_Peripherals_New.html"; 
             });
             container.appendChild(backButton);
 
@@ -234,7 +240,7 @@ function removeFavourite(index) {
     favourites.splice(index, 1); // Remove item at index
     localStorage.setItem("favourites", JSON.stringify(favourites));
 
-    applyFavourites(); // Refresh the table
+    applyFavourites(); 
 }
 
 // Buy Now buttons
