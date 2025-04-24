@@ -103,7 +103,7 @@ function proceedToCheckout() {
         alert("Your cart is empty!");
         return;
     }
-    window.location.href = "Checkout_Page.html";
+    window.location.href = "./Checkout_Page.html";
 }
 
 // Checkout page display
@@ -177,11 +177,11 @@ function setupFavourites() {
 
             container.innerHTML = "<h1>Your Favourites</h1>";
 
-            // ✅ Go back button fixed
+            
             const backButton = document.createElement("button");
             backButton.textContent = "Go Back";
             backButton.addEventListener("click", () => {
-                window.location.href = "Consoles_and_Gaming_Peripherals_New.html"; // Change if needed
+                window.location.href = "./Consoles_and_Gaming_Peripherals_New.html"; 
             });
             container.appendChild(backButton);
 
@@ -245,7 +245,7 @@ function setupBuyNowButtons() {
             else cart.push({ name: itemName, price: itemPrice, quantity: 1, image });
 
             saveCart();
-            window.location.href = "Checkout_Page.html";
+            window.location.href = "./Checkout_Page.html";
         });
     });
 }
