@@ -9,7 +9,7 @@ function saveCart() {
 // Add item to cart
 function addToCart(name, price, imageUrl) {
     
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push(product);
     localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -114,7 +114,7 @@ function proceedToCheckout() {
         alert("Your cart is empty!");
         return;
     }
-    window.location.href = "./Checkout_Page.html";
+    window.location.href = "/Gaming_Store/Checkout_Page.html";
 }
 
 // Checkout page display
@@ -192,7 +192,7 @@ function setupFavourites() {
             const backButton = document.createElement("button");
             backButton.textContent = "Go Back";
             backButton.addEventListener("click", () => {
-                window.location.href = "./Consoles_and_Gaming_Peripherals_New.html"; 
+                window.location.href = "/Gaming_Store/Consoles_and_Gaming_Peripherals_New.html"; 
             });
             container.appendChild(backButton);
 
@@ -256,7 +256,7 @@ function setupBuyNowButtons() {
             else cart.push({ name: itemName, price: itemPrice, quantity: 1, image });
 
             saveCart();
-            window.location.href = "./Checkout_Page.html";
+            window.location.href = "/Gaming_Store/Checkout_Page.html";
         });
     });
 }
