@@ -1,13 +1,18 @@
+// Load cart from localStorage or start with empty
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 // Save cart to localStorage
 function saveCart() {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    
+    localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 // Add item to cart
 function addToCart(name, price, imageUrl) {
+    // This should be inside your addToCart function
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
     const tableBody = document.querySelector("#cartTable tbody");
 
     const existingRow = [...tableBody.rows].find(row => row.cells[0].innerText === name);
@@ -104,7 +109,6 @@ function proceedToCheckout() {
         return;
     }
     window.location.href = "./Checkout_Page.html";
-
 }
 
 // Checkout page display
@@ -141,7 +145,7 @@ function handleCheckoutForm() {
         e.preventDefault();
         cart = [];
         saveCart();
-        localStorage.removeItem("cart");
+        localStorage.removeItem("cart"); // ✅ Clear cart after purchase
         form.reset();
         document.querySelector("#checkoutTable tbody").innerHTML = "";
         document.getElementById("checkoutTotal").textContent = "0";
@@ -178,11 +182,11 @@ function setupFavourites() {
 
             container.innerHTML = "<h1>Your Favourites</h1>";
 
-            
+            // ✅ Go back button fixed
             const backButton = document.createElement("button");
             backButton.textContent = "Go Back";
             backButton.addEventListener("click", () => {
-                window.location.href = "./Consoles_and_Gaming_Peripherals_New.html"; 
+                window.location.href = "Consoles_and_Gaming_Peripherals_New.html"; // Change if needed
             });
             container.appendChild(backButton);
 
@@ -227,10 +231,10 @@ function applyFavourites() {
 function removeFavourite(index) {
     let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
 
-    favourites.splice(index, 1);
+    favourites.splice(index, 1); // Remove item at index
     localStorage.setItem("favourites", JSON.stringify(favourites));
 
-    applyFavourites(); 
+    applyFavourites(); // Refresh the table
 }
 
 // Buy Now buttons
