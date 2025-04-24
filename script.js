@@ -103,7 +103,7 @@ function proceedToCheckout() {
         alert("Your cart is empty!");
         return;
     }
-    window.location.href = "https://imasha2006.github.io/Gaming_Store/Checkout_Page.html";
+    window.location.href = "./Checkout_Page.html";
 
 }
 
@@ -182,7 +182,7 @@ function setupFavourites() {
             const backButton = document.createElement("button");
             backButton.textContent = "Go Back";
             backButton.addEventListener("click", () => {
-                window.location.href = "https://imasha2006.github.io/Gaming_Store/Consoles_and_Gaming_Peripherals_New.html"; 
+                window.location.href = "./Consoles_and_Gaming_Peripherals_New.html"; 
             });
             container.appendChild(backButton);
 
@@ -246,7 +246,7 @@ function setupBuyNowButtons() {
             else cart.push({ name: itemName, price: itemPrice, quantity: 1, image });
 
             saveCart();
-            window.location.href = "https://imasha2006.github.io/Gaming_Store/Checkout_Page.html";
+            window.location.href = "./Checkout_Page.html";
         });
     });
 }
