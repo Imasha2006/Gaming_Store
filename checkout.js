@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (cart.length === 0) {
         const checkoutSection = document.getElementById("checkoutSection");
         if (checkoutSection) {
-            checkoutSection.innerHTML = "<p>Your cart is empty. <a href='shop.html'>Continue Shopping</a></p>";
+            checkoutSection.innerHTML = "<p>Your cart is empty. <a href='./Comsoles_and_Gaming_Peripherals_New.html'>Continue Shopping</a></p>";
         }
         return;
     }
