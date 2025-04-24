@@ -1,5 +1,5 @@
 // Load cart from localStorage or start with empty
-cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Save cart to localStorage
 function saveCart() {
@@ -8,9 +8,9 @@ function saveCart() {
 
 // Add item to cart
 function addToCart(name, price, imageUrl) {
-    
-    cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push({ name, price, quantity: 1, image: imageUrl });
+    // This should be inside your addToCart function
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
     localStorage.setItem('cart', JSON.stringify(cart));
 
     const tableBody = document.querySelector("#cartTable tbody");
@@ -74,11 +74,12 @@ document.querySelectorAll(".quantity-input").forEach(function (input) {
     });
 }); 
 
-
+// Update cart table (cart.html)
 function updateCartTable() {
     const tbody = document.querySelector("#cartTable tbody");
     if (!tbody) return;
 
+    tbody.innerHTML = "";
     let total = 0;
 
     cart.forEach((item, index) => {
@@ -107,7 +108,7 @@ function proceedToCheckout() {
         alert("Your cart is empty!");
         return;
     }
-    window.location.href = "/Gaming_Store/Checkout_Page.html";
+    window.location.href = "./Checkout_Page.html";
 }
 
 // Checkout page display
@@ -181,11 +182,11 @@ function setupFavourites() {
 
             container.innerHTML = "<h1>Your Favourites</h1>";
 
-            
+            // ✅ Go back button fixed
             const backButton = document.createElement("button");
             backButton.textContent = "Go Back";
             backButton.addEventListener("click", () => {
-                window.location.href = "/Gaming_Store/Consoles_and_Gaming_Peripherals_New.html"; 
+                window.location.href = "Consoles_and_Gaming_Peripherals_New.html"; // Change if needed
             });
             container.appendChild(backButton);
 
@@ -233,7 +234,7 @@ function removeFavourite(index) {
     favourites.splice(index, 1); // Remove item at index
     localStorage.setItem("favourites", JSON.stringify(favourites));
 
-    applyFavourites(); 
+    applyFavourites(); // Refresh the table
 }
 
 // Buy Now buttons
@@ -249,7 +250,7 @@ function setupBuyNowButtons() {
             else cart.push({ name: itemName, price: itemPrice, quantity: 1, image });
 
             saveCart();
-            window.location.href = "/Gaming_Store/Checkout_Page.html";
+            window.location.href = "./Checkout_Page.html";
         });
     });
 }
