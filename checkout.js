@@ -5,16 +5,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-
+    // ⬇️ Show message if cart is empty
     if (cart.length === 0) {
         const checkoutSection = document.getElementById("checkoutSection");
         if (checkoutSection) {
-            checkoutSection.innerHTML = "<p>Your cart is empty. <a href='./Consoles_and_Gaming_Peripherals_New.html'>Continue Shopping</a></p>";
+            checkoutSection.innerHTML = "<p>Your cart is empty. <a href='shop.html'>Continue Shopping</a></p>";
         }
         return;
     }
 
-   
+    // Populate the checkout table
     function updateCheckoutTable() {
         checkoutTable.innerHTML = "";
         let total = 0;
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateCheckoutTable();
 
+    // ✅ Show alert on form submit instead of using a hidden <p>
     checkoutForm.addEventListener("submit", function (event) {
         event.preventDefault();
         const name = document.getElementById("name").value.trim();
@@ -123,51 +124,3 @@ function handleStripePayment({ token, error }) {
     }
 }
 
-// Retrieve cart from local storage or create a new one
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-function addToCart(name, price) {
-    let existingItem = cart.find(item => item.name === name);
-
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push({ name: name, price: price, quantity: 1 });
-    }
-
-    // Save cart to local storage
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    // Update cart table
-    updateCartTable();
-}
-
-function updateCartTable() {
-    let tbody = document.querySelector("#cartTable tbody");
-    tbody.innerHTML = ""; // Clear previous entries
-    let totalPrice = 0;
-
-    cart.forEach(item => {
-        let row = `<tr>
-            <td>${item.name}</td>
-            <td>${item.quantity}</td>
-            <td>$${(item.price * item.quantity).toFixed(2)}</td>
-        </tr>`;
-        tbody.innerHTML += row;
-        totalPrice += item.price * item.quantity;
-    });
-
-    document.getElementById("totalPrice").innerText = totalPrice.toFixed(2);
-}
-
-function proceedToCheckout() {
-    if (cart.length === 0) {
-        alert("Your cart is empty. Please add items before proceeding to checkout.");
-        return;
-    }
-
-    window.location.href = "./checkout.html";
-}
-
-// Load cart when the page loads
-document.addEventListener("DOMContentLoaded", updateCartTable);
