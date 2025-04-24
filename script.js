@@ -103,7 +103,7 @@ function proceedToCheckout() {
         alert("Your cart is empty!");
         return;
     }
-    window.location.href = "./Checkout_Page.html";
+    window.location.href = "Checkout_Page.html";
 }
 
 // Checkout page display
@@ -245,7 +245,7 @@ function setupBuyNowButtons() {
             else cart.push({ name: itemName, price: itemPrice, quantity: 1, image });
 
             saveCart();
-            window.location.href = "./Checkout_Page.html";
+            window.location.href = "Checkout_Page.html";
         });
     });
 }
