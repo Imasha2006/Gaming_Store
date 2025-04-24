@@ -103,7 +103,8 @@ function proceedToCheckout() {
         alert("Your cart is empty!");
         return;
     }
-    window.location.href = "./Checkout_Page.html";
+    window.location.href = "https://imasha2006.github.io/Gaming_Store/Checkout_Page.html";
+
 }
 
 // Checkout page display
@@ -140,7 +141,7 @@ function handleCheckoutForm() {
         e.preventDefault();
         cart = [];
         saveCart();
-        localStorage.removeItem("cart"); // ✅ Clear cart after purchase
+        localStorage.removeItem("cart");
         form.reset();
         document.querySelector("#checkoutTable tbody").innerHTML = "";
         document.getElementById("checkoutTotal").textContent = "0";
@@ -181,7 +182,7 @@ function setupFavourites() {
             const backButton = document.createElement("button");
             backButton.textContent = "Go Back";
             backButton.addEventListener("click", () => {
-                window.location.href = "./Consoles_and_Gaming_Peripherals_New.html"; 
+                window.location.href = "https://imasha2006.github.io/Gaming_Store/Consoles_and_Gaming_Peripherals_New.html"; 
             });
             container.appendChild(backButton);
 
@@ -226,10 +227,10 @@ function applyFavourites() {
 function removeFavourite(index) {
     let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
 
-    favourites.splice(index, 1); // Remove item at index
+    favourites.splice(index, 1);
     localStorage.setItem("favourites", JSON.stringify(favourites));
 
-    applyFavourites(); // Refresh the table
+    applyFavourites(); 
 }
 
 // Buy Now buttons
@@ -245,7 +246,7 @@ function setupBuyNowButtons() {
             else cart.push({ name: itemName, price: itemPrice, quantity: 1, image });
 
             saveCart();
-            window.location.href = "./Checkout_Page.html";
+            window.location.href = "https://imasha2006.github.io/Gaming_Store/Checkout_Page.html";
         });
     });
 }
