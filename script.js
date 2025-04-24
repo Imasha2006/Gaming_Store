@@ -1,5 +1,5 @@
 // Load cart from localStorage or start with empty
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Save cart to localStorage
 function saveCart() {
@@ -10,7 +10,7 @@ function saveCart() {
 function addToCart(name, price, imageUrl) {
     
     cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push(product);
+    cart.push({ name, price, quantity: 1, image: imageUrl });
     localStorage.setItem('cart', JSON.stringify(cart));
 
     const tableBody = document.querySelector("#cartTable tbody");
@@ -79,13 +79,6 @@ function updateCartTable() {
     const tbody = document.querySelector("#cartTable tbody");
     if (!tbody) return;
 
-    tbody.innerHTML = "";
-    // Re-populate with updated cart data
-    cartItems.forEach(item => {
-    let row = document.createElement("tr");
-    row.innerHTML = `<td>${item.name}</td><td>${item.price}</td>`;
-    tbody.appendChild(row);
-});
     let total = 0;
 
     cart.forEach((item, index) => {
