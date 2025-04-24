@@ -166,7 +166,7 @@ function proceedToCheckout() {
         return;
     }
 
-    window.location.href = "checkout.html";
+    window.location.href = "./checkout.html";
 }
 
 // Load cart when the page loads
