@@ -101,4 +101,4 @@ document.addEventListener("DOMContentLoaded", () => {
         if (checkoutTable) checkoutTable.innerHTML = "";
         if (checkoutTotal) checkoutTotal.textContent = "0";
     }
-
+});
