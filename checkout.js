@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show empty message
     if (cart.length === 0) {
-        const checkoutSection = document.getElementById("checkoutSection");
-        if (checkoutSection) {
-            checkoutSection.innerHTML = "<p>Your cart is empty. <a href='shop.html'>Continue Shopping</a></p>";
+        const checkoutContainer = document.querySelector(".checkout-container");
+        if (checkoutContainer) {
+            checkoutContainer.innerHTML = "<p>Your cart is empty. <a href='shop.html'>Continue Shopping</a></p>";
         }
         return;
     }
@@ -39,61 +39,56 @@ document.addEventListener("DOMContentLoaded", () => {
     // Stripe setup
     let stripe, card;
     if (cardContainer) {
-        stripe = Stripe('your-publishable-key-here');
+        stripe = Stripe('your-publishable-key-here'); // Replace with your Stripe publishable key
         const elements = stripe.elements();
         card = elements.create('card');
         card.mount('#card-element');
     }
 
-    // Show/hide credit card details based on payment method selection
+    // Show/hide card section based on selection
     paymentSelect.addEventListener("change", function () {
-        const selectedPaymentMethod = paymentSelect.value;
-        if (selectedPaymentMethod === "card") {
-            cardSection.style.display = "block"; // Show credit card section
-            payButton.style.display = "inline-block"; // Show Pay button
-        } else if (selectedPaymentMethod === "COD") {
-            cardSection.style.display = "none"; // Hide credit card section
-            payButton.style.display = "inline-block"; // Show Pay button
+        const method = paymentSelect.value.toLowerCase();
+        if (method === "card") {
+            cardSection.style.display = "block";
+            payButton.style.display = "inline-block";
+        } else if (method === "cod") {
+            cardSection.style.display = "none";
+            payButton.style.display = "inline-block";
         } else {
-            cardSection.style.display = "none"; // Default: hide
-            payButton.style.display = "none"; // Hide Pay button
+            cardSection.style.display = "none";
+            payButton.style.display = "none";
         }
     });
 
-    // Initial check in case a method is pre-selected
-    paymentSelect.dispatchEvent(new Event('change'));
+    paymentSelect.dispatchEvent(new Event('change')); // Init
 
-    // Form submission handler
+    // Form submission
     checkoutForm.addEventListener("submit", async function (event) {
         event.preventDefault();
-        const name = document.getElementById("name").value.trim();
-        const paymentMethod = document.getElementById("payment").value;
 
-        // Validate name
-        const nameRegex = /^[A-Za-z\s]+$/;
-        if (!nameRegex.test(name)) {
-            alert("Please enter a valid name using alphabets only.");
+        const name = document.getElementById("name").value.trim();
+        const paymentMethod = paymentSelect.value;
+
+        if (!/^[A-Za-z\s]+$/.test(name)) {
+            alert("Please enter a valid name using letters only.");
             return;
         }
 
         if (paymentMethod === "card") {
-            // Handle Stripe card payment
             const { token, error } = await stripe.createToken(card);
             if (error) {
                 alert(error.message);
                 return;
             }
 
-            console.log("Stripe Token:", token); // Send to backend here
+            console.log("Stripe Token:", token); // You'd send this to your server here
 
             handleSuccessfulPurchase();
-        } else if (paymentMethod === "COD") {
-            // Handle Cash on Delivery payment method
+        } else if (paymentMethod === "cod") {
             handleSuccessfulPurchase();
         }
     });
 
-    // Success Handler
     function handleSuccessfulPurchase() {
         alert("Thank you for your purchase! Your order will be delivered in 3–5 days.");
         localStorage.removeItem("cart");
