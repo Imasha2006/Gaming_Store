@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Stripe setup
     let stripe, card;
     if (cardContainer) {
-        stripe = Stripe('your-publishable-key-here'); // Replace with your real Stripe publishable key
+        stripe = Stripe('pk_test_4eC39HqLyjWDarjtT1zdp7dc'); // Replace with your real Stripe publishable key
         const elements = stripe.elements();
         card = elements.create('card', {
             hidePostalCode: true, // Hide postal code field
