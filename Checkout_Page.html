@@ -32,28 +32,33 @@
         <h3>Total: $<span id="checkoutTotal">0</span></h3>
 
         <h2>Customer Details</h2>
-       <form id="checkoutForm">
+        <form id="checkoutForm">
             <label for="name">Name:</label>
-            <input type="text" id="name" required pattern="[A-Za-z\s]+" title="Please enter letters only" />
+            <input type="text" id="name" required pattern="[A-Za-z\s]+" title="Please enter letters only">
 
             <label for="address">Address:</label>
-            <input type="text" id="address" required />
+            <input type="text" id="address" required>
 
             <label for="payment">Payment Method:</label>
             <select id="payment" required>
-                <option value="card">Credit Card</option>
-                <option value="cod">Cash on Delivery</option>
+                <option id="card-button-container"value="card">Credit Card</option>
+                <option id="paypal-button-container"value="paypal">PayPal</option>
             </select>
-        
-        <div id="card-section" style="display: none; margin-top: 1rem;">
-                <label for="card-element">Credit Card:</label>
-                <div id="card-element">
-                    <!-- A Stripe Element will be inserted here. -->
-                </div>
-                <div id="card-errors" role="alert" style="color: red;"></div>
-            </div>
-           <button type="submit">Pay</button>
+            
+
+            <button type="submit">Pay</button>
         </form>
+        
+        <label for="card-element">Credit Card:</label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <div id="card-errors" role="alert"></div>
+        <div id="paypal-button-container"></div>
+
+
+    </div>
 </body>
 
 </html>
