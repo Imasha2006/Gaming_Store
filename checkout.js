@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Show empty message
+    // Show empty message if cart is empty
     if (cart.length === 0) {
         const checkoutContainer = document.querySelector(".checkout-container");
         if (checkoutContainer) {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         stripe = Stripe('your-publishable-key-here'); // Replace with your real Stripe publishable key
         const elements = stripe.elements();
         card = elements.create('card', {
-            hidePostalCode: true, // Hides the postal code field
+            hidePostalCode: true, // Hide postal code field
             style: {
                 base: {
                     fontSize: '16px',
@@ -90,25 +90,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (paymentMethod === "card") {
+            // Create Stripe token
             const { token, error } = await stripe.createToken(card);
             if (error) {
-                alert(error.message);
+                alert(error.message); // Show error message if something goes wrong
+                console.error(error); // Log the error for debugging
                 return;
             }
 
-            console.log("Stripe Token:", token); // Send this token to your server
+            console.log("Stripe Token:", token); // You would send this token to your server here
 
+            // Handle successful purchase after receiving the token
             handleSuccessfulPurchase();
         } else if (paymentMethod === "cod") {
+            // Handle successful purchase without card payment
             handleSuccessfulPurchase();
         }
     });
 
+    // Function to handle the purchase completion
     function handleSuccessfulPurchase() {
+        console.log("Handling successful purchase...");
         alert("Thank you for your purchase! Your order will be delivered in 3–5 days.");
+        
+        // Clear cart and reset checkout form
         localStorage.removeItem("cart");
         checkoutForm.reset();
+        
+        // Reset the checkout table and total
         if (checkoutTable) checkoutTable.innerHTML = "";
         if (checkoutTotal) checkoutTotal.textContent = "0";
+
+        // Optionally, redirect to a confirmation or order summary page
+        // window.location.href = '/order-confirmation';
     }
 });
