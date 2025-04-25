@@ -42,7 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
         stripe = Stripe('your-publishable-key-here'); // Replace with your real Stripe publishable key
         const elements = stripe.elements();
         card = elements.create('card', {
-            hidePostalCode: true // This hides the postal code field
+            hidePostalCode: true, // Hides the postal code field
+            style: {
+                base: {
+                    fontSize: '16px',
+                    color: '#32325d',
+                    '::placeholder': {
+                        color: '#aab7c4'
+                    }
+                },
+                invalid: {
+                    color: '#fa755a',
+                    iconColor: '#fa755a'
+                }
+            }
         });
         card.mount('#card-element');
     }
