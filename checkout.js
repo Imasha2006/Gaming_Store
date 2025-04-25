@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkoutTotal = document.getElementById("checkoutTotal");
     const checkoutForm = document.getElementById("checkoutForm");
     const cardContainer = document.getElementById("card-element");
+    const paymentMethodSelect = document.getElementById("payment");
+    const cardDetailsContainer = document.getElementById("card-details");
+    const cashOnDeliveryContainer = document.getElementById("cash-on-delivery-container");
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -33,6 +36,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateCheckoutTable();
 
+    // Handle Payment Method Selection
+    paymentMethodSelect.addEventListener("change", function() {
+        const paymentMethod = paymentMethodSelect.value;
+
+        // Hide all payment options by default
+        cardDetailsContainer.style.display = "none";
+        cashOnDeliveryContainer.style.display = "none";
+
+        // Show appropriate payment options based on selection
+        if (paymentMethod === "card") {
+            cardDetailsContainer.style.display = "block";
+        } else if (paymentMethod === "cod") {
+            cashOnDeliveryContainer.style.display = "block";
+        }
+    });
+
     // Stripe setup
     let stripe, card;
     if (cardContainer) {
@@ -46,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     checkoutForm.addEventListener("submit", async function (event) {
         event.preventDefault();
         const name = document.getElementById("name").value.trim();
-        const paymentMethod = document.getElementById("payment").value;
+        const paymentMethod = paymentMethodSelect.value;
 
         // Validate name
         const nameRegex = /^[A-Za-z\s]+$/;
@@ -56,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (paymentMethod === "card") {
+            // Handle Stripe card payment
             const { token, error } = await stripe.createToken(card);
             if (error) {
                 alert(error.message);
@@ -65,12 +85,17 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Stripe Token:", token); // Send to backend here
 
             handleSuccessfulPurchase();
-        } else if (paymentMethod === "paypal") {
-            // Do nothing; PayPal flow is separate via button
+        } else if (paymentMethod === "cod") {
+            // Handle Cash on Delivery
+            handleCashOnDelivery();
         }
     });
 
-
+    // Handle Cash on Delivery
+    function handleCashOnDelivery() {
+        alert("Cash on delivery selected. Your order will be delivered to you.");
+        handleSuccessfulPurchase();
+    }
 
     // Success Handler
     function handleSuccessfulPurchase() {
@@ -81,4 +106,3 @@ document.addEventListener("DOMContentLoaded", () => {
         if (checkoutTotal) checkoutTotal.textContent = "0";
     }
 });
-
