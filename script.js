@@ -116,6 +116,7 @@ function handleCheckoutForm() {
         } else {
             const msg = document.createElement("p");
             msg.textContent = "Thank you for your purchase! Your order will be delivered in 3–5 days.";
+            msg.classList.add("thank-you-msg");
             form.parentNode.appendChild(msg);
         }
     });
