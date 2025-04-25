@@ -36,10 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateCheckoutTable();
 
-    // Stripe setup
+    // Stripe setup in test mode
     let stripe, card;
     if (cardContainer) {
-        stripe = Stripe('pk_test_12345exampleKey'); 
+        // Replace with your actual test publishable key
+        stripe = Stripe('pk_test_12345exampleKey'); // Test key from your Stripe account
         const elements = stripe.elements();
         card = elements.create('card', {
             hidePostalCode: true, 
@@ -90,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (paymentMethod === "card") {
-            // Create Stripe token
+            // Create Stripe token in test mode
             const { token, error } = await stripe.createToken(card);
             if (error) {
                 alert(error.message); // Show error message if something goes wrong
@@ -98,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            console.log("Stripe Token:", token); // You would send this token to your server here
+            console.log("Stripe Token:", token); // This is the token you would send to your server for processing
 
             // Simulate successful payment and show the "Thank You" message
             handleSuccessfulPurchase();
