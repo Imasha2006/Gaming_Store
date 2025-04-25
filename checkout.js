@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkoutTotal = document.getElementById("checkoutTotal");
     const checkoutForm = document.getElementById("checkoutForm");
     const cardContainer = document.getElementById("card-element");
+    const expiryInput = document.getElementById("expiry");
     const paymentSelect = document.getElementById("payment");
     const cardSection = document.getElementById("card-section");
     const payButton = document.querySelector("button[type='submit']");
@@ -39,66 +40,75 @@ document.addEventListener("DOMContentLoaded", () => {
     // Stripe setup
     let stripe, card;
     if (cardContainer) {
-        stripe = Stripe('your-publishable-key-here');
+        stripe = Stripe('your-publishable-key-here'); // Replace with real key
         const elements = stripe.elements();
         card = elements.create('card');
         card.mount('#card-element');
     }
 
-    // Show/hide credit card details based on payment method selection
+    // Show/hide credit card section
     paymentSelect.addEventListener("change", function () {
-        const selectedPaymentMethod = paymentSelect.value;
-        if (selectedPaymentMethod === "card") {
-            cardSection.style.display = "block"; // Show credit card section
-            payButton.style.display = "inline-block"; // Show Pay button
-        } else if (selectedPaymentMethod === "COD") {
-            cardSection.style.display = "none"; // Hide credit card section
-            payButton.style.display = "inline-block"; // Show Pay button
+        if (paymentSelect.value === "card") {
+            cardSection.style.display = "block";
+            payButton.style.display = "inline-block";
         } else {
-            cardSection.style.display = "none"; // Default: hide
-            payButton.style.display = "none"; // Hide Pay button
+            cardSection.style.display = "none";
+            payButton.style.display = "inline-block";
         }
     });
 
-    // Initial check in case a method is pre-selected
+    // Trigger initial state
     paymentSelect.dispatchEvent(new Event('change'));
 
-    // Form submission handler
+    // Form submit
     checkoutForm.addEventListener("submit", async function (event) {
         event.preventDefault();
         const name = document.getElementById("name").value.trim();
-        const paymentMethod = document.getElementById("payment").value;
+        const paymentMethod = paymentSelect.value;
 
-        // Validate name
         const nameRegex = /^[A-Za-z\s]+$/;
         if (!nameRegex.test(name)) {
-            alert("Please enter a valid name using alphabets only.");
+            alert("Please enter a valid name using letters only.");
             return;
         }
 
         if (paymentMethod === "card") {
-            // Handle Stripe card payment
+            // Validate expiry date
+            const expiry = expiryInput.value;
+            if (!expiry) {
+                alert("Please enter your card expiry date.");
+                return;
+            }
+
+            const today = new Date();
+            const [expYear, expMonth] = expiry.split("-").map(Number);
+            const expiryDate = new Date(expYear, expMonth - 1);
+            if (expiryDate < new Date(today.getFullYear(), today.getMonth())) {
+                alert("Card expiry date is invalid or expired.");
+                return;
+            }
+
             const { token, error } = await stripe.createToken(card);
             if (error) {
                 alert(error.message);
                 return;
             }
 
-            console.log("Stripe Token:", token); // Send to backend here
+            console.log("Stripe Token:", token); // Send to backend
 
             handleSuccessfulPurchase();
         } else if (paymentMethod === "COD") {
-            // Handle Cash on Delivery payment method
             handleSuccessfulPurchase();
         }
     });
 
-    // Success Handler
+    // Success
     function handleSuccessfulPurchase() {
         alert("Thank you for your purchase! Your order will be delivered in 3–5 days.");
         localStorage.removeItem("cart");
         checkoutForm.reset();
         if (checkoutTable) checkoutTable.innerHTML = "";
         if (checkoutTotal) checkoutTotal.textContent = "0";
+        cardSection.style.display = "none";
     }
 });
