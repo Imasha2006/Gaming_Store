@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             console.log("Stripe Token:", token); // You would send this token to your server here
 
-            // Handle successful purchase after receiving the token
+            // Simulate successful payment and show the "Thank You" message
             handleSuccessfulPurchase();
         } else if (paymentMethod === "cod") {
             // Handle successful purchase without card payment
@@ -111,6 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to handle the purchase completion
     function handleSuccessfulPurchase() {
         console.log("Handling successful purchase...");
+        
+        // Show a success message
         alert("Thank you for your purchase! Your order will be delivered in 3–5 days.");
         
         // Clear cart and reset checkout form
