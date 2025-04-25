@@ -11,7 +11,7 @@ function addToCart(name, price, imageUrl) {
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
-        cart.push({ name, price, quantity: 1, image: imageUrl });
+        cart.push({ name, price: parseFloat(price), quantity: 1, image: imageUrl });
     }
 
     saveCart();
