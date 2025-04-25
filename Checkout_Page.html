@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="./CSS_Files/Test_2.css">
     <script src="./JS_Files/checkout.js" defer></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=your-client-id-here&currency=USD"></script>
-
-
 </head>
 
 <body>
@@ -40,22 +37,27 @@
             <input type="text" id="address" required>
 
             <label for="payment">Payment Method:</label>
-            <select id="payment" required>
+            <select id="payment">
                 <option value="card">Credit Card</option>
+                <option value="cod">Cash on Delivery</option>
             </select>
-            
 
             <button type="submit">Pay</button>
         </form>
         
-        <label for="card-element">Credit Card:</label>
-        <div id="card-element">
-            <!-- A Stripe Element will be inserted here. -->
+        <!-- Credit Card input field will be displayed when Credit Card is selected -->
+        <div id="card-details" style="display: none;">
+            <label for="card-element">Credit Card:</label>
+            <div id="card-element">
+                <!-- A Stripe Element will be inserted here. -->
+            </div>
+            <div id="card-errors" role="alert"></div>
         </div>
 
-        <div id="card-errors" role="alert"></div>
-        <div id="paypal-button-container"></div>
-
+        <!-- Cash on Delivery message (shown when selected) -->
+        <div id="cod-message" style="display: none;">
+            <p>You have selected Cash on Delivery. No card details are required.</p>
+        </div>
 
     </div>
 </body>
