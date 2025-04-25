@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkoutTotal = document.getElementById("checkoutTotal");
     const checkoutForm = document.getElementById("checkoutForm");
     const cardContainer = document.getElementById("card-element");
+    const paymentSelect = document.getElementById("payment");
+    const cardSection = document.getElementById("card-section");
+    const payButton = document.querySelector("button[type='submit']");
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -42,6 +45,24 @@ document.addEventListener("DOMContentLoaded", () => {
         card.mount('#card-element');
     }
 
+    // Show/hide credit card details based on payment method selection
+    paymentSelect.addEventListener("change", function () {
+        const selectedPaymentMethod = paymentSelect.value;
+        if (selectedPaymentMethod === "card") {
+            cardSection.style.display = "block"; // Show credit card section
+            payButton.style.display = "inline-block"; // Show Pay button
+        } else if (selectedPaymentMethod === "COD") {
+            cardSection.style.display = "none"; // Hide credit card section
+            payButton.style.display = "inline-block"; // Show Pay button
+        } else {
+            cardSection.style.display = "none"; // Default: hide
+            payButton.style.display = "none"; // Hide Pay button
+        }
+    });
+
+    // Initial check in case a method is pre-selected
+    paymentSelect.dispatchEvent(new Event('change'));
+
     // Form submission handler
     checkoutForm.addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -66,32 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Stripe Token:", token); // Send to backend here
 
             handleSuccessfulPurchase();
-        } else if (paymentMethod === "paypal") {
-            // Handle PayPal payment method
-            handlePayPalPayment();
+        } else if (paymentMethod === "COD") {
+            // Handle Cash on Delivery payment method
+            handleSuccessfulPurchase();
         }
     });
-
-    // PayPal button integration
-    function handlePayPalPayment() {
-        paypal.Buttons({
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: checkoutTotal.textContent // Use the total here
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    console.log("Transaction completed by", details.payer.name.given_name);
-                    handleSuccessfulPurchase();
-                });
-            }
-        }).render('#paypal-button-container');
-    }
 
     // Success Handler
     function handleSuccessfulPurchase() {
