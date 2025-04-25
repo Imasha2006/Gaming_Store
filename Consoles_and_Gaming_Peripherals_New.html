@@ -1,431 +1,64 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./Images2/title.png" type="image/x-icon">
-    <title>Consoles and Gaming Peripherals</title>
-    <link rel="stylesheet" href="./Consoles_and_Gaming_Peripherals_New_2.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="/Gaming_Store/script.js" defer></script>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="./Test.css">
+    <link rel="stylesheet" href="./Test_2.css">
+    <script src="./checkout.js" defer></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=your-client-id&components=buttons"></script>
+
+
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="./Images6/logo3.png" alt="Website Logo">
-        </div>
-        <nav>
-            <ul class="menu">
-                <li><a href="./Index.html">Home</a></li>
-                <li><a href="./About_Us.html">About Us</a></li>
-                <li><a href="./Upcoming_Games.html">Upcoming Games</a></li>
-                <li><a href="./Consoles_and_Gaming_Peripherals.html">Consoles & Gaming Peripherals</a></li>
-                <li><a href="./Games.html">Games</a></li>
-                <li><a href="./Blog_and_New_Page.html">Blog & News</a></li>
-                <li><a href="./Queries_and_FAQs.html">FAQs</a></li>
-                <li><a href="./Consoles_and_Gaming_Peripherals_New.html">Buy Consoles and Gaming Peripherals</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="checkout-container">
+        <h1>Checkout</h1>
 
-    <section id="home" class="hero">
-        <h1 class="section-heading"onclick="toggleSection('processors')">Processors</h1>
-        <div id="processors" class="section-content">
-            <div class="box">
-                <img src="./Images8/Procerror/pr1.png" alt="Intel Core i3" class="side-image">
-                <div class="text-box">
-                    <h2>Intel Core i3</h2>
-                    <p>A budget-friendly dual-core processor suitable for everyday computing tasks like web browsing, document editing, and media playback.</p>
-                    <div class="price">Price: $121.00</div>
-                    <button onclick="addToCart('Intel Core i3', 121.00, './Images8/Procerror/pr1.png')">Add to Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Procerror/pr2.png" alt="Intel Core i7" class="side-image">
-                <div class="text-box">
-                    <h2>Intel Core i7</h2>
-                    <p>A high-performance quad-core processor aimed at gamers, content creators, and professionals needing multitasking capabilities.</p>
-                    <div class="price">Price: $109.99</div>
-                    <button onclick="addToCart('Intel Core i3-10105', 109.99, './Images8/Procerror/pr2.png')">Add to Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Procerror/pr3.png" alt="Intel Core i7" class="side-image">
-                <div class="text-box">
-                    <h2>Intel Core i7</h2>
-                    <p>Another model of the Intel Core i7 series, likely a more recent generation, known for strong performance in both single and multi-threaded applications.</p>
-                    <div class="price">Price: $319.93</div>
-                    <button onclick="addToCart('Intel Core i7', 319.93, './Images8/Procerror/pr3.png')">Add to Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Procerror/pr4.png" alt="Intel Core i5" class="side-image">
-                <div class="text-box">
-                    <h2>Intel Core i5</h2>
-                    <p>A mid-range processor offering a balance between price and performance, ideal for light gaming, office work, and multitasking.</p>
-                    <div class="price">Price: $180.99</div>
-                    <button onclick="addToCart('Intel Core i5', 180.99, './Images8/Procerror/pr4.png')">Add to Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Procerror/pr5.png" alt="Intel Core i5 4th Gen" class="side-image">
-                <div class="text-box">
-                    <h2>Intel Core i5 4th Gen</h2>
-                    <p>An older generation of the Core i5 line, still capable of handling general computing tasks and light productivity workloads.</p>
-                    <div class="price">Price: $99.99</div>
-                    <button onclick="addToCart('Intel Core i5 4th Gen', 99.99, './Images8/Procerror/pr5.png')">Add to Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Procerror/pr6.png" alt="Intel Processor" class="side-image">
-                <div class="text-box">
-                    <h2>Intel Processor</h2>
-                    <p>A generic view of an Intel CPU, often resembling older models like Pentium or early Core series, typically used in entry-level builds.</p>
-                    <div class="price">Price: $80.99</div>
-                    <button onclick="addToCart('Intel Processor', 80.99, './Images8/Procerror/pr6.png')">Add to Cart</button>
-                </div>
-            </div>
+        <h2>Order Summary</h2>
+        <table id="checkoutTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <h3>Total: $<span id="checkoutTotal">0</span></h3>
 
-            <!-- More Processor items here -->
+        <h2>Customer Details</h2>
+        <form id="checkoutForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required pattern="[A-Za-z\s]+" title="Please enter letters only">
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" required>
+
+            <label for="payment">Payment Method:</label>
+            <select id="payment" required>
+                <option id="card-button-container"value="card">Credit Card</option>
+                <option id="paypal-button-container"value="paypal">PayPal</option>
+            </select>
+            
+
+            <button type="submit">Pay</button>
+        </form>
+        
+        <label for="card-element">Credit Card:</label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
         </div>
 
+        <div id="card-errors" role="alert"></div>
+        <div id="paypal-button-container"></div>
 
 
-
-
-        <h1 class="section-heading"onclick="toggleSection('graphicCards')">Graphic Cards</h1>
-        <div id="graphicCards" class="section-content">
-            <div class="box">
-                <img src="./Images8/Graphic Cards/gc (1).png" alt="Gigabyte GeForce GTX 1050 Ti" class="side-image">
-                <div class="text-box">.png Cards/gc (1).png
-                    <h2>Gigabyte GeForce GTX 1050 Ti</h2>
-                    <p>A budget-friendly Pascal-based GPU, great for light gaming and general use with 4GB GDDR5.</p>
-                    <div class="price">Price: $160.99</div>
-                    <button onclick="addToCart('Gigabyte GeForce GTX 1050 Ti', 160.99, './Images8/Graphic Cards/gc (1).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Graphic Cards/gc (2).png" alt="Gigabyte GeForce RTX 2060 Windforce OC" class="side-image">
-                <div class="text-box">
-                    <h2>Gigabyte GeForce RTX 2060 Windforce OC</h2>
-                    <p>A solid 1080p/1440p performer from NVIDIA’s Turing line, with real-time ray tracing support.</p>
-                    <div class="price">Price: $249.99</div>
-                    <button onclick="addToCart('Gigabyte GeForce RTX 2060 Windforce OC', 249.99, './Images8/Graphic Cards/gc (2).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Graphic Cards/gc (3).png" alt="ASUS TUF Gaming GeForce RTX 4090" class="side-image">
-                <div class="text-box">
-                    <h2>ASUS TUF Gaming GeForce RTX 4090</h2>
-                    <p>Flagship-level GPU from the Ada Lovelace lineup, top-tier 4K and AI performance.</p>
-                    <div class="price">Price: $1999.99</div>
-                    <button onclick="addToCart('ASUS TUF Gaming GeForce RTX 4090', 1999.99, './Images8/Graphic Cards/gc (3).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Graphic Cards/gc (4).png" alt="NVIDIA Founders Edition GeForce RTX 3070" class="side-image">
-                <div class="text-box">
-                    <h2>NVIDIA Founders Edition GeForce RTX 3070</h2>
-                    <p>A high-performance Ampere GPU, ideal for 1440p gaming and content creation</p>
-                    <div class="price">Price: $499.99</div>
-                    <button onclick="addToCart('NVIDIA Founders Edition GeForce RTX 3070', 499.99, './Images8/Graphic Cards/gc (4).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Graphic Cards/gc (5).png" alt="NVIDIA Quadro K620" class="side-image">
-                <div class="text-box">
-                    <h2>NVIDIA Quadro K620</h2>
-                    <p>A workstation card, not ideal for gaming, but built for CAD, modeling, and professional tasks.</p>
-                    <div class="price">Price: $179.99</div>
-                    <button onclick="addToCart('NVIDIA Quadro K620', 179.99, './Images/Graphic Cards/gc (5).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Graphic Cards/gc (6).png" alt="ASUS ROG Strix Radeon RX 570" class="side-image">
-                <div class="text-box">
-                    <h2>ASUS ROG Strix Radeon RX 570</h2>
-                    <p>A popular mid-range AMD Polaris GPU with good 1080p performance and 4GB GDDR5.</p>
-                    <div class="price">Price: $180.99</div>
-                    <button onclick="addToCart('ASUS ROG Strix Radeon RX 570', 180.99, './Images/Graphic Cards/gc (6).png')">Add to
-                        Cart</button>Images
-                </div>
-            </div>
-            <!-- More Graphic Card items here -->
-        </div>
-
-
-
-        <h1 class="section-heading"onclick="toggleSection('motherboards')">Motherboards</h1>
-        <div id="motherboards" class="section-content">
-            <div class="box">
-                <img src="./Images8/Motherboards/MB (1).png" alt="ASUS H81M-K" class="side-image">
-                <div class="text-box">
-                    <h2>ASUS H81M-K</h2>
-                    <p>An entry-level LGA1150 motherboard for Intel 4th Gen CPUs (Haswell), often used for basic office builds.</p>
-                    <div class="price">Price: $50.99</div>
-                    <button onclick="addToCart('ASUS H81M-K', 50.99, './Images/Motherboards/MB (1).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Motherboards/MB (2).png" alt="ASUS Prime B460M-A" class="side-image">
-                <div class="text-box">
-                    <h2>ASUS Prime B460M-A</h2>
-                    <p>Micro-ATX motherboard for 10th Gen Intel processors, designed for everyday computing with solid stability.</p>
-                    <div class="price">Price: $95.99</div>
-                    <button onclick="addToCart('ASUS Prime B460M-A', 95.99, './Images/Motherboards/MB (2).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Motherboards/MB (3).png" alt="MSI MPG Z790 Carbon WiFi" class="side-image">
-                <div class="text-box">
-                    <h2>MSI MPG Z790 Carbon WiFi</h2>
-                    <p>A high-end gaming and creator board for Intel 12th/13th Gen CPUs, with premium features and WiFi.</p>
-                    <div class="price">Price: $390.99</div>
-                    <button onclick="addToCart('MSI MPG Z790 Carbon WiFi', 390.99, './Images/Motherboards/MB (3).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Motherboards/MB (4).png" alt="Gigabyte H310M M.2 2.0" class="side-image">
-                <div class="text-box">
-                    <h2>Gigabyte H310M M.2 2.0</h2>
-                    <p>A compact motherboard for 8th/9th Gen Intel CPUs, suitable for budget and small form factor builds.</p>
-                    <div class="price">Price: $75.99</div>
-                    <button onclick="addToCart('Gigabyte H310M M.2 2.0', 75.99, './Images/Motherboards/MB (4).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Motherboards/MB (5).png" alt="Gigabyte H61M-DS2V" class="side-image">
-                <div class="text-box">
-                    <h2>Gigabyte H61M-DS2V</h2>
-                    <p>Older motherboard for 2nd/3rd Gen Intel CPUs (Sandy/Ivy Bridge), commonly found in legacy systems.</p>
-                    <div class="price">Price: $45.99</div>
-                    <button onclick="addToCart('Gigabyte H61M-DS2V', 45.99, './Images/Motherboards/MB (5).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Motherboards/MB (6).png" alt="MSI X470 Gaming Plus" class="side-image">
-                <div class="text-box">
-                    <h2>MSI X470 Gaming Plus</h2>
-                    <p>A powerful AM4 motherboard ideal for AMD Ryzen gaming builds, especially 2nd and 3rd Gen processors.</p>
-                    <div class="price">Price: $140.99</div>
-                    <button onclick="addToCart('MSI X470 Gaming Plus', 140.99, './Images/Motherboards/MB (6).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <!-- More Motherboard items here -->
-        </div>
-
-
-
-
-        <h1 class="section-heading"onclick="toggleSection('memeory(RAM)')">Memory (RAM)</h1>
-        <div id="memeory(RAM)" class="section-content">
-            <div class="box">
-                <img src="./Images8/Memory(RAM)/RAM (1).png" alt="Kingston ValueRAM DDR3 Desktop Memory" class="side-image">
-                <div class="text-box">
-                    <h2>Kingston ValueRAM DDR3 Desktop Memory</h2>
-                    <p>A standard green PCB DDR3 desktop RAM stick with no heat spreader, typically used in general-purpose desktops. It's affordable and reliable for office work or light multitasking.</p>
-                    <div class="price">Price: $24.99</div>
-                    <button onclick="addToCart('Kingston ValueRAM DDR3 Desktop Memory', 24.99, './Images8/Memory(RAM)/RAM (1).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Memory(RAM)/RAM (2).png" alt="Assorted DDR3/DDR4 Desktop Modules" class="side-image">
-                <div class="text-box">
-                    <h2>Assorted DDR3/DDR4 Desktop Modules</h2>
-                    <p>A spread of various unbranded or OEM DDR3 and DDR4 RAM sticks, showcasing different types and sizes. Common in refurbished or bulk PC builds.</p>
-                    <div class="price">Price: ~$25.00</div>
-                    <button onclick="addToCart('Assorted DDR3/DDR4 Desktop Modules', 25.00, './Images/Memory(RAM)/RAM (2).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Memory(RAM)/RAM (3).png" alt="Kingston 8GB DDR4 2666MHz Desktop RAM" class="side-image">
-                <div class="text-box">
-                    <h2>Kingston 8GB DDR4 2666MHz Desktop RAM</h2>
-                    <p>Mid-range DDR4 module offering 2666MHz speed for desktops.</p>
-                    <div class="price">Price: ~$28.33</div>
-                    <button onclick="addToCart('Kingston 8GB DDR4 2666MHz Desktop RAM', 28.33, './Images/Memory(RAM)/RAM (3).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Memory(RAM)/RAM (4).png" alt="Kingston 8GB DDR4 3200MHz Laptop RAM" class="side-image">
-                <div class="text-box">
-                    <h2>Kingston 8GB DDR4 3200MHz Laptop RAM</h2>
-                    <p>High-speed DDR4 SODIMM suitable for modern laptops.</p>
-                    <div class="price">Price: ~$33.30</div>
-                    <button onclick="addToCart('Memory RAM  4', 33.30, './Images/Memory(RAM)/RAM (4).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Memory(RAM)/RAM (5).png" alt="Kingston 8GB DDR4 2666MHz Laptop RAM" class="side-image">
-                <div class="text-box">
-                    <h2>Kingston 8GB DDR4 2666MHz Laptop RAM</h2>
-                    <p>Standard DDR4 SODIMM for laptops requiring 2666MHz speed.</p>
-                    <div class="price">Price: ~$33.30</div>
-                    <button onclick="addToCart('Kingston 8GB DDR4 2666MHz Laptop RAM', 33.30, './Images/Memory(RAM)/RAM (5).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Memory(RAM)/RAM (6).png" alt="Crucial 16GB DDR4 3200MHz Laptop RAM" class="side-image">
-                <div class="text-box">
-                    <h2>Crucial 16GB DDR4 3200MHz Laptop RAM</h2>
-                    <p>Reliable DDR4 SODIMM from Crucial, suitable for laptops.</p>
-                    <div class="price">Price: ~$48.53</div>
-                    <button onclick="addToCart('Crucial 16GB DDR4 3200MHz Laptop RAM', 48.53, './Images/Memory(RAM)/RAM (6).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <!-- More RAM items here -->
-        </div>
-
-
-
-        <h1 class="section-heading"onclick="toggleSection('storage devices')">Storage device</h1>
-        <div id="storage devices" class="section-content">
-            <div class="box">
-                <img src="./Images8/Storage Devices/SD (1).png" alt="Cruzer Blade 4GB USB Flash Drive" class="side-image">
-                <div class="text-box">
-                    <h2>Cruzer Blade 4GB USB Flash Drive</h2>
-                    <p>A compact and affordable USB 2.0 flash drive ideal for storing small files and documents.</p>
-                    <div class="price">Price: $5</div>
-                    <button onclick="addToCart('Cruzer Blade 4GB USB Flash Drive', 5, './Images/Storage Devices/SD (1).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Storage Devices/SD (2).png" alt="Seagate Laptop HDD 500GB" class="side-image">
-                <div class="text-box">
-                    <h2>Seagate Laptop HDD 500GB</h2>
-                    <p>A 2.5" internal hard disk drive typically used in laptops, offering 500GB of space.</p>
-                    <div class="price">Price: $25</div>
-                    <button onclick="addToCart('Seagate Laptop HDD 500GB', 25, './Images/Storage Devices/SD (2).png')">Add to
-                        Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Storage Devices/SD (3).png" alt="Seagate Barracuda 1TB Desktop HDD" class="side-image">
-                <div class="text-box">
-                    <h2>Seagate Barracuda 1TB Desktop HDD</h2>
-                    <p>A desktop hard drive with 1TB capacity, used in standard PCs for storage expansion.</p>
-                    <div class="price">Price: $40.99</div>
-                    <button onclick="addToCart('Seagate Barracuda 1TB Desktop HDD', 40.99, './Images/Storage Devices/SD (3).png')">Add
-                        to Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Storage Devices/SD (4).png" alt="SanDisk SD and MicroSD Cards" class="side-image">
-                <div class="text-box">
-                    <h2>SanDisk SD and MicroSD Cards</h2>
-                    <p>A variety of SD and microSD cards (128GB) for cameras, phones, and other devices.</p>
-                    <div class="price">Price: $15</div>
-                    <button onclick="addToCart('SanDisk SD and MicroSD Cards', 15, './Images/Storage Devices/SD (4).png')">Add
-                        to Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Storage Devices/SD (5).png" alt="Color USB Flash Drives Set (16GB–64GB)" class="side-image">
-                <div class="text-box">
-                    <h2>Color USB Flash Drives Set (16GB)</h2>
-                    <p>A multi-pack of USB flash drives in various colors and capacities, often used for quick data sharing.</p>
-                    <div class="price">Full Set Price: $30</div>
-                    <button onclick="addToCart('Color USB Flash Drives Set (16GB–64GB)', 30, './Images/Storage Devices/SD (5).png')">Add
-                        to Cart</button>
-                </div>
-            </div>
-            <div class="box">
-                <img src="./Images8/Storage Devices/SD (6).png" alt="Seagate 1TB External Portable Hard Drive (USB 3.0)" class="side-image">
-                <div class="text-box">
-                    <h2>Seagate 1TB External Portable Hard Drive (USB 3.0)</h2>
-                    <p>A sleek external hard drive with 1TB capacity, perfect for backups and file portability.</p>
-                    <div class="price">Price: $49.99</div>
-                    <button onclick="addToCart('Seagate 1TB External Portable Hard Drive (USB 3.0)', 49.99, './Images/Storage Devices/SD (6).png')">Add
-                        to Cart</button>
-                </div>
-                <!-- More Storage Device items here -->
-            </div>
-        </div>
-        <h2>Shopping Cart</h2>
-        <div class="badge" data-count="3">
-            <i class="fa fa-shopping-cart"></i>
-
-
-            <table id="cartTable">
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <h3>Total: $<span id="totalPrice">0</span></h3>
-
-            <div class="favourite-buttons">
-                <button class="buy-now"onclick="proceedToCheckout()"><i class="fas fa-shopping-cart"></i>Buy Now</button>
-                <button class="add-fav"id="saveFavourite"><i class="fas fa-heart"></i>Add to Favorites ❤️</button>
-                <button class="apply-fav"id="applyFavourite"><i class="fas fa-star"></i>Apply Favorite ⭐</button>
-            </div>
-        </div>
-
-    </section>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>Contact Info</h3>
-                <p><strong>Email:</strong> info@yourwebsite.com</p>
-                <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                <p><strong>Address:</strong> 1234 Your Street, City, Country</p>
-            </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="./Index.html">Home</a></li>
-                    <li><a href="./About_Us.html">About Us</a></li>
-                    <li><a href="./Upcoming_Games.html">Upcoming Games</a></li>
-                    <li><a href="./Blog_and_New_Page.html">Blog & News</a></li>
-                </ul>
-            </div>
-
-            <div class="newsletter">
-                <h3>Subscribe to our Newsletter</h3>
-                <form action="#">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-                <div class="social-media-links">
-                    <a href="https://facebook.com" target="_blank" class="social-icon"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com" target="_blank" class="social-icon"><i
-                            class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com" target="_blank" class="social-icon"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com" target="_blank" class="social-icon"><i
-                            class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-
-        </div>
-    </footer>
+    </div>
 </body>
 
 </html>
