@@ -1,15 +1,17 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./Images2/title.png" type="image/x-icon">
     <title>Checkout</title>
     <link rel="stylesheet" href="./Test.css">
     <link rel="stylesheet" href="./Test_2.css">
-    <script src="https://js.stripe.com/v3/"></script>
     <script src="./checkout.js" defer></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
+
 </head>
 
 <body>
@@ -39,24 +41,16 @@
 
             <label for="payment">Payment Method:</label>
             <select id="payment" required>
-                <option value="card">Credit Card</option>
-                <option value="COD">Cash on Delivery</option>
+                <option id="card-button-container"value="card">Credit Card</option>
+                <option id="paypal-button-container"value="COD">Cash on Delivery</option>
             </select>
-
-            <!-- Credit Card Section -->
-            <div id="card-section" style="display: none; margin-top: 1rem;">
-                <label for="card-element">Credit Card Details:</label>
-                <div id="card-element">
-                    <!-- Stripe card input will mount here -->
-                </div>
-
-                <label for="expiry">Expiry Date:</label>
-                <input type="month" id="expiry" name="expiry" required>
-            </div>
+            
 
             <button type="submit">Pay</button>
         </form>
+        
+
     </div>
 </body>
 
-</html>
+</html>  give me the uodated html
