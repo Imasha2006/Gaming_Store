@@ -112,13 +112,22 @@ document.addEventListener("DOMContentLoaded", () => {
     function handleSuccessfulPurchase() {
         console.log("Handling successful purchase...");
         
-        // Show a success message
-        alert("Thank you for your purchase! Your order will be delivered in 3–5 days.");
-        
+        // Show the "Thank You" message
+        const thankYouMessage = document.getElementById("thank-you-message");
+        if (thankYouMessage) {
+            thankYouMessage.style.display = "block";
+        }
+
+        // Hide the checkout container
+        const checkoutContainer = document.querySelector(".checkout-container");
+        if (checkoutContainer) {
+            checkoutContainer.style.display = "none";
+        }
+
         // Clear cart and reset checkout form
         localStorage.removeItem("cart");
         checkoutForm.reset();
-        
+
         // Reset the checkout table and total
         if (checkoutTable) checkoutTable.innerHTML = "";
         if (checkoutTotal) checkoutTotal.textContent = "0";
