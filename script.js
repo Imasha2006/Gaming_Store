@@ -7,6 +7,7 @@ function saveCart() {
 
 // Add item to cart
 function addToCart(name, price, imageUrl) {
+    console.log("Image URL: ", imageUrl);
     const existingItem = cart.find(item => item.name === name);
     if (existingItem) {
         existingItem.quantity += 1;
