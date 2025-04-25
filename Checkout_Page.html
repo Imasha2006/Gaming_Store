@@ -32,22 +32,33 @@
         <h3>Total: $<span id="checkoutTotal">0</span></h3>
 
         <h2>Customer Details</h2>
-        <form id="checkoutForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required pattern="[A-Za-z\s]+" title="Please enter letters only">
+       <form id="checkoutForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required pattern="[A-Za-z\s]+" title="Please enter letters only">
 
-            <label for="address">Address:</label>
-            <input type="text" id="address" required>
+    <label for="address">Address:</label>
+    <input type="text" id="address" required>
 
-            <label for="payment">Payment Method:</label>
-            <select id="payment" required>
-                <option id="card-button-container"value="card">Credit Card</option>
-                <option id="paypal-button-container"value="paypal">PayPal</option>
-            </select>
-            
+    <label for="payment">Payment Method:</label>
+    <select id="payment" required>
+        <option value="">-- Select Payment Method --</option>
+        <option value="card">Credit Card</option>
+        <option value="cod">Cash on Delivery</option>
+    </select>
 
-            <button type="submit">Pay</button>
-        </form>
+    <!-- Stripe fields will only show when 'card' is selected -->
+    <div id="card-section" style="display: none;">
+        <label for="card-element">Credit Card:</label>
+        <div id="card-element">
+            <!-- Stripe Element will be injected here -->
+        </div>
+        <div id="card-errors" role="alert"></div>
+    </div>
+
+    <!-- Pay button (hidden until method is selected) -->
+    <button type="submit" id="payButton" style="display: none;">Pay</button>
+</form>
+
         
         <label for="card-element">Credit Card:</label>
         <div id="card-element">
