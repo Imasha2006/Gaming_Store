@@ -3,9 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkoutTotal = document.getElementById("checkoutTotal");
     const checkoutForm = document.getElementById("checkoutForm");
     const cardContainer = document.getElementById("card-element");
-    const paymentSelect = document.getElementById("payment");
-    const cardSection = document.getElementById("card-section");
-    const payButton = document.getElementById("payButton");
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -45,34 +42,35 @@ document.addEventListener("DOMContentLoaded", () => {
         card.mount('#card-element');
     }
 
-checkoutForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
+    // Form submission handler
+    checkoutForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const paymentMethod = document.getElementById("payment").value;
 
-    const name = document.getElementById("name").value.trim();
-    const paymentMethod = paymentSelect.value;
-
-    // Validate name
-    const nameRegex = /^[A-Za-z\s]+$/;
-    if (!nameRegex.test(name)) {
-        alert("Please enter a valid name using alphabets only.");
-        return;
-    }
-
-    if (paymentMethod === "card") {
-        const { token, error } = await stripe.createToken(card);
-        if (error) {
-            alert(error.message);
+        // Validate name
+        const nameRegex = /^[A-Za-z\s]+$/;
+        if (!nameRegex.test(name)) {
+            alert("Please enter a valid name using alphabets only.");
             return;
         }
 
-        console.log("Stripe Token:", token);
-        handleSuccessfulPurchase();
-    } else if (paymentMethod === "cod") {
-        alert("Order placed with Cash on Delivery. Please keep the payment ready.");
-        handleSuccessfulPurchase();
-    }
-});
+        if (paymentMethod === "card") {
+            // Handle Stripe card payment
+            const { token, error } = await stripe.createToken(card);
+            if (error) {
+                alert(error.message);
+                return;
+            }
 
+            console.log("Stripe Token:", token); // Send to backend here
+
+            handleSuccessfulPurchase();
+        } else if (paymentMethod === "paypal") {
+            // Handle PayPal payment method
+            handlePayPalPayment();
+        }
+    });
 
     // PayPal button integration
     function handlePayPalPayment() {
@@ -102,19 +100,5 @@ checkoutForm.addEventListener("submit", async function (event) {
         checkoutForm.reset();
         if (checkoutTable) checkoutTable.innerHTML = "";
         if (checkoutTotal) checkoutTotal.textContent = "0";
-    }
-});
-paymentSelect.addEventListener("change", function () {
-    const selectedMethod = paymentSelect.value;
-
-    if (selectedMethod === "card") {
-        cardSection.style.display = "block";
-        payButton.style.display = "inline-block";
-    } else if (selectedMethod === "cod") {
-        cardSection.style.display = "none";
-        payButton.style.display = "inline-block";
-    } else {
-        cardSection.style.display = "none";
-        payButton.style.display = "none";
     }
 });
