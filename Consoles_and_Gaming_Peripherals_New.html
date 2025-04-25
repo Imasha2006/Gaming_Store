@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./Test_2.css">
     <script src="./checkout.js" defer></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=your-client-id&components=buttons"></script>
 
 
 </head>
@@ -42,21 +41,20 @@
             <label for="payment">Payment Method:</label>
             <select id="payment" required>
                 <option id="card-button-container"value="card">Credit Card</option>
-                <option id="paypal-button-container"value="paypal">PayPal</option>
+                <option id="paypal-button-container"value="COD">Cash on Delivery</option>
             </select>
             
 
             <button type="submit">Pay</button>
         </form>
         
-        <label for="card-element">Credit Card:</label>
-        <div id="card-element">
-            <!-- A Stripe Element will be inserted here. -->
-        </div>
-
-        <div id="card-errors" role="alert"></div>
-        <div id="paypal-button-container"></div>
-
+        <div id="card-section" style="display: none;">
+    <label for="card-element">Credit Card:</label>
+    <div id="card-element">
+        <!-- A Stripe Element will be inserted here. -->
+    </div>
+    <div id="card-errors" role="alert"></div>
+</div>
 
     </div>
 </body>
