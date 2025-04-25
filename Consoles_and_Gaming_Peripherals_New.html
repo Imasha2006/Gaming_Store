@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./Test_2.css">
     <script src="./checkout.js" defer></script>
     <script src="https://js.stripe.com/v3/"></script>
+
+
 </head>
 
 <body>
@@ -38,12 +40,16 @@
 
             <label for="payment">Payment Method:</label>
             <select id="payment" required>
-                <option value="COD">Cash on Delivery</option>
+                <option id="card-button-container"value="card">Credit Card</option>
+                <option id="paypal-button-container"value="COD">Cash on Delivery</option>
             </select>
+            
 
             <button type="submit">Pay</button>
         </form>
+        
+
     </div>
 </body>
 
-</html>
+</html> 
